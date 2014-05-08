@@ -10,20 +10,20 @@
 
 [elasticsearch]
 # Set the host and port where to find Elasticsearch.
-host = "localhost"
-port = 9200
+host = "<%= @host %>"
+port = <%= @port %>
 
 [interfaces]
 # Select on which network interfaces to sniff. You can use the "any"
 # keyword to sniff on all connected interfaces.
-device = "any"
+device = "<%= @interfaces %>"
 
 [protocols]
 # Configure which protocols to monitor and on which ports are they
 # running. You can disable a given protocol by commenting out its
 # configuration.
   [protocols.http]
-  ports = [80, 8080, 8000, 5000, 8002]
+  ports = [80, 8080, 8000, 5000, 8002, 9200 , 9300]
 
   [protocols.mysql]
   ports = [3306]
@@ -33,18 +33,19 @@ device = "any"
 
 [procs]
 # Uncomment the following line to disable the process monitoring.
-# dont_read_from_proc = true
+dont_read_from_proc = <%= @disable_procs %>
 
 # Which processes to monitor and how to find them. The processes can
 # be found by searching their command line by a given string.
-  [procs.monitored.mysqld]
-  cmdline_grep = "mysqld"
+#
+#  [procs.monitored.mysqld]
+#  cmdline_grep = "mysqld"
 
-  [procs.monitored.nginx]
-  cmdline_grep = "nginx"
+#  [procs.monitored.nginx]
+#  cmdline_grep = "nginx"
 
-  [procs.monitored.app]
-  cmdline_grep = "gunicorn"
+#  [procs.monitored.app]
+#  cmdline_grep = "gunicorn"
 
 [agent]
 # The name of the agent as it will show up in the web interface. If not
@@ -69,4 +70,3 @@ device = "any"
 # These are debug helpers to control the verbosity of logging.
 selectors = ["pinger"]
 
-# vim: set ft=toml:

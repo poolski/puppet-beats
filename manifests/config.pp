@@ -1,4 +1,9 @@
-class packetbeat::config {
+class packetbeat::config(
+  $host = 'localhost',
+  $port = '9200',
+  $interfaces = 'any',
+  $disable_procs = 'true'
+){
 
 
   file { '/etc/packetbeat/':
@@ -13,6 +18,8 @@ class packetbeat::config {
     group   => '0',
     mode    => '0755',
     owner   => '0',
+    notify  => Service['packetbeat']
+
   }
 
 }
