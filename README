@@ -13,3 +13,16 @@ Contact
 Kris Buytaert 
 
 
+Assumptions
+-----------
+
+
+Only tested on CentOS
+PacketBeat rpm is available in  an available repository.
+Elastic Search is installed on localhost 
+
+
+TODO:
+
+Actually template the template , contains defaults now.
+Upload the Dasbhoards during deploy
