@@ -2,7 +2,10 @@ class packetbeat::config(
   $host = 'localhost',
   $port = '9200',
   $interfaces = 'any',
-  $disable_procs = 'true'
+  $disable_procs = 'true',
+  $agentname = $::fqdn ,
+  $uid = '501',
+  $gid = '501',
 ){
 
 

@@ -51,7 +51,8 @@ dont_read_from_proc = <%= @disable_procs %>
 # The name of the agent as it will show up in the web interface. If not
 # defined, we will just use the hostname.
 #
-#name=
+## Disabled till https://github.com/packetbeat/packetbeat/issues/20 is fixed
+##name= <%= @agentname %>
 
 [runoptions]
 # The Packetbeat agent can drop privileges after creating the sniffing
@@ -63,8 +64,8 @@ dont_read_from_proc = <%= @disable_procs %>
 # Warning: Because on Linux Setuid doesn't change the uid of all threads,
 # the Go garbage collector will continue to run as root.
 # Note: Process monitoring only works when running as root.
-#uid=501
-#gid=501
+uid=<%= @uid %>
+gid=<%= @gid %>
 
 [logging]
 # These are debug helpers to control the verbosity of logging.
