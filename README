@@ -15,14 +15,15 @@ Kris Buytaert
 
 Assumptions
 -----------
+Example use case : 
+ https://github.com/KrisBuytaert/vagrant-puppet-packetbeat
 
 
 Only tested on CentOS
 PacketBeat rpm is available in  an available repository.
-Elastic Search is installed on localhost 
+Elastic Search is installed
 
 
 TODO:
 
-Actually template the template , contains defaults now.
-Upload the Dasbhoards during deploy
+Upload the Dashboards during deploy
