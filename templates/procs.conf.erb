@@ -1,0 +1,15 @@
+[procs]
+# Uncomment the following line to disable the process monitoring.
+dont_read_from_proc = <%= @disable_procs %>
+
+# Which processes to monitor and how to find them. The processes can
+# be found by searching their command line by a given string.
+#
+#  [procs.monitored.mysqld]
+#  cmdline_grep = "mysqld"
+
+#  [procs.monitored.nginx]
+#  cmdline_grep = "nginx"
+
+#  [procs.monitored.app]
+#  cmdline_grep = "gunicorn"

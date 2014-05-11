@@ -18,34 +18,7 @@ port = <%= @port %>
 # keyword to sniff on all connected interfaces.
 device = "<%= @interfaces %>"
 
-[protocols]
-# Configure which protocols to monitor and on which ports are they
-# running. You can disable a given protocol by commenting out its
-# configuration.
-  [protocols.http]
-  ports = [80, 8080, 8000, 5000, 8002, 9200 , 9300]
 
-  [protocols.mysql]
-  ports = [3306]
-
-  [protocols.redis]
-  ports = [6379]
-
-[procs]
-# Uncomment the following line to disable the process monitoring.
-dont_read_from_proc = <%= @disable_procs %>
-
-# Which processes to monitor and how to find them. The processes can
-# be found by searching their command line by a given string.
-#
-#  [procs.monitored.mysqld]
-#  cmdline_grep = "mysqld"
-
-#  [procs.monitored.nginx]
-#  cmdline_grep = "nginx"
-
-#  [procs.monitored.app]
-#  cmdline_grep = "gunicorn"
 
 [agent]
 # The name of the agent as it will show up in the web interface. If not
