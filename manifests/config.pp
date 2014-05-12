@@ -1,11 +1,11 @@
 class packetbeat::config(
-  $host = 'localhost',
-  $port = '9200',
-  $interfaces = 'any',
-  $disable_procs = 'true',
-  $agentname = $::fqdn ,
-  $uid = '501',
-  $gid = '501',
+  $host = $packetbeat::params::host,
+  $port = $packetbeat::params::port,
+  $interfaces = $packetbeat::params::interfaces,
+  $disable_procs = $packetbeat::params::disable_procs,
+  $agentname = $packetbeat::params::agentname ,
+  $uid = $packetbeat::params::uid,
+  $gid = $packetbeat::params::gid,
 ){
 
 

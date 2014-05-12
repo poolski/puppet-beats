@@ -22,6 +22,7 @@
 #
 class packetbeat {
 
+  require packetbeat::params
   include packetbeat::package
   include packetbeat::config
   include packetbeat::service
