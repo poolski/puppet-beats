@@ -4,7 +4,7 @@ class packetbeat::service(
 ) {
 
   service { 'packetbeat':
-    ensure => "$ensure",
+    ensure => "${ensure}",
     enable => $enable,
   }
 
