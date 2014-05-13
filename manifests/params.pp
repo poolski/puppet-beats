@@ -6,6 +6,8 @@ class packetbeat::params(
   $agentname = $::fqdn ,
   $uid = '501',
   $gid = '501',
+  $ensure = 'running',
+  $enable = 'true',
 ){
 
 
