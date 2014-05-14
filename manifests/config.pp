@@ -1,13 +1,4 @@
-class packetbeat::config(
-  $host = $packetbeat::params::host,
-  $port = $packetbeat::params::port,
-  $interfaces = $packetbeat::params::interfaces,
-  $disable_procs = $packetbeat::params::disable_procs,
-  $agentname = $packetbeat::params::agentname ,
-  $uid = $packetbeat::params::uid,
-  $gid = $packetbeat::params::gid,
-){
-
+class packetbeat::config() inherits packetbeat {
 
   file { '/etc/packetbeat/':
     ensure => 'directory',
