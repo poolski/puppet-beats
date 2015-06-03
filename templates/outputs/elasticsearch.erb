@@ -2,5 +2,25 @@
     enabled: true
     host: <%= @host %>
     port: <%= @port %>
-    save_topology: true
+    save_topology: <%= @save_topology %>
+
+    <% if @protocol %>
+    # Protocol and auth credentials
+    protocol: <%= @protocol %>
+    <% end %>
+    <% if @username %>
+    username: <%= @username %>
+    <% end %>
+    <% if @password %>
+    password: <%= @password %>
+    <% end %>
+
+    <% if @index %>
+    # Custom index location
+    index: <%= @index %>
+    <% end %>
+    <% if @http_path %>
+    # Custom HTTP path to ES
+    path: <%= @http_path %>
+    <% end %>
 
