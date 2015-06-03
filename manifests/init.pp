@@ -23,10 +23,10 @@
 class packetbeat (
   $agentname = $::fqdn ,
   $ensure = 'running',
-  $enable = 'true',
+  $enable = true,
   $uid = '501',
   $gid = '501',
-  $disable_procs = 'true',
+  $disable_procs = true,
   $refresh_topology_freq = '10',
   $topology_expire = '15',
   $interfaces = 'any',
@@ -59,5 +59,5 @@ class packetbeat (
 ) {
   include packetbeat::package, packetbeat::config, packetbeat::service
   Class['packetbeat::package'] -> Class['packetbeat::config'] ~> Class'packetbeat::service']
-  
+
 }
