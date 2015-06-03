@@ -9,7 +9,7 @@ class packetbeat::package ($deburl = false, $version = '1.0.0~Beta1'){
   }
 
   package { 'packetbeat':
-    ensure  => $version,
+    ensure  => installed,
     require => Apt::Localpackage['packetbeat']
   }
 }
