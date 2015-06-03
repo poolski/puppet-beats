@@ -1,6 +1,6 @@
   http:
     ports: [<%= @http_ports %>]
-    <% if !@hide_keywords.empty %>
+    <% if @hide_keywords %>
     hide_keywords: [
     <% @hide_keywords.each do |kw| -%>
       "<%= kw %>",
