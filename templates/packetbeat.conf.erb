@@ -7,39 +7,27 @@
 ###
 ### Go to http://packetbeat.com/getstarted for more details.
 ###
+###
+### THIS FILE IS MANAGED BY PUPPET. DO NOT EDIT DIRECTLY
 
-[elasticsearch]
-# Set the host and port where to find Elasticsearch.
-host = "<%= @host %>"
-port = <%= @port %>
+shipper:
+  # This defaults to the hostname currently. 
+  name= "<%= @agentname %>"  
+  <% if @tags %>
+  tags: [
+  <% @tags.each do |tag| -%>
+    "<%= tag %>",
+  <% end -%>
+  ] 
+  <% else %>
+  tags: []
+  <% end %>
+ 
+  ignore_outgoing: <%= @ignore_outgoing %>
+  refresh_topology_freq: <%= @refresh_topology_freq %>
 
-[interfaces]
-# Select on which network interfaces to sniff. You can use the "any"
-# keyword to sniff on all connected interfaces.
-device = "<%= @interfaces %>"
-
-
-
-[agent]
-# The name of the agent as it will show up in the web interface. If not
-# defined, we will just use the hostname.
-#
-name= "<%= @agentname %>"
-
-[runoptions]
-# The Packetbeat agent can drop privileges after creating the sniffing
-# socket. Root access is required for opening the socket but everything
-# else requires no privileges. Therefore, it is strongly recommended
-# to have the Agent switch users after the initialization phase.
-# The following two settings set the User Id and the Group Id under
-# which the Agent will run.
-# Warning: Because on Linux Setuid doesn't change the uid of all threads,
-# the Go garbage collector will continue to run as root.
-# Note: Process monitoring only works when running as root.
-uid=<%= @uid %>
-gid=<%= @gid %>
-
-[logging]
-# These are debug helpers to control the verbosity of logging.
-selectors = ["pinger"]
-
+interfaces:
+  device: "<%= @interfaces %>"
+  snaplen: <%= @snaplen %>
+  type: <%= @sniffer_type %>
+  buffer_size_mb: <%= @buffer_size %>
