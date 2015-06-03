@@ -29,4 +29,26 @@ class packetbeat::config() inherits packetbeat {
     content => template('packetbeat/outputs/output.header.erb'),
     order   => 20
   }
+
+  if $packetbeat::es_enabled {
+    concat::fragment {'output.elasticsearch':
+      target  => '/etc/packetbeat/packetbeat.yml',
+      content => template('packetbeat/outputs/elasticsearch.erb'),
+      order   => 21
+    }
+  }
+  if $packetbeat::redis_enabled {
+    concat::fragment {'output.redis':
+      target  => '/etc/packetbeat/packetbeat.yml',
+      content => template('packetbeat/outputs/redis.erb'),
+      order   => 22
+    }
+  }
+  if $packetbeat::file_enabled {
+    concat::fragment {'output.file':
+      target  => '/etc/packetbeat/packetbeat.yml',
+      content => template('packetbeat/outputs/file.erb'),
+      order   => 23
+    }
+  }
 }
