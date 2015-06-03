@@ -11,18 +11,16 @@
 ### THIS FILE IS MANAGED BY PUPPET. DO NOT EDIT DIRECTLY
 
 shipper:
-  # This defaults to the hostname currently. 
-  name= "<%= @agentname %>"  
-  <% if @tags %>
+  name= "<%= @agentname %>"
+<% if @tags %>
   tags: [
-  <% @tags.each do |tag| -%>
+<% @tags.each do |tag| -%>
     "<%= tag %>",
-  <% end -%>
+<% end -%>
   ] 
-  <% else %>
+<% else %>
   tags: []
-  <% end %>
- 
+<% end %>
   ignore_outgoing: <%= @ignore_outgoing %>
   refresh_topology_freq: <%= @refresh_topology_freq %>
 
