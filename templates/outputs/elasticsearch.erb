@@ -3,21 +3,21 @@
     host: <%= @es_host %>
     port: <%= @es_port %>
     es_save_topology: <%= @es_save_topology %>
-    <% if @es_protocol %>
+<% if @es_protocol %>
     # Protocol and auth credentials
     es_protocol: <%= @es_protocol %>
-    <% end %>
-    <% if @es_username %>
+<% end %>
+<% if @es_username %>
     es_username: <%= @es_username %>
-    <% end %>
-    <% if @es_password %>
+<% end %>
+<% if @es_password %>
     es_password: <%= @es_password %>
-    <% end %>
-    <% if @es_index %>
+<% end %>
+<% if @es_index %>
     # Custom index location
     es_index: <%= @es_index %>
-    <% end %>
-    <% if @es_http_path %>  
+<% end %>
+<% if @es_http_path %>  
     # Custom HTTP path to ES
     path: <%= @es_http_path %>
-    <% end %>
+<% end %>
