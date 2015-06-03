@@ -21,12 +21,12 @@ shipper:
 <% else %>
   tags: []
 <% end %>
-  ignore_outgoing: <%= @ignore_outgoing %>
+  ignore_outgoing: <%= @int_ignore_outgoing %>
   refresh_topology_freq: <%= @refresh_topology_freq %>
 
 interfaces:
   device: "<%= @interfaces %>"
-  snaplen: <%= @snaplen %>
-  type: <%= @sniffer_type %>
-  buffer_size_mb: <%= @buffer_size %>
+  snaplen: <%= @int_snaplen %>
+  type: <%= @int_sniffer_type %>
+  buffer_size_mb: <%= @int_buffer_size %>
 
