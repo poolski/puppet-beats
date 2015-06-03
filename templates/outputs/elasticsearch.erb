@@ -1,26 +1,26 @@
   elasticsearch:
     enabled: true
-    host: <%= @host %>
-    port: <%= @port %>
-    save_topology: <%= @save_topology %>
+    host: <%= @es_host %>
+    port: <%= @es_port %>
+    es_save_topology: <%= @es_save_topology %>
 
-    <% if @protocol %>
+    <% if @es_protocol %>
     # Protocol and auth credentials
-    protocol: <%= @protocol %>
+    es_protocol: <%= @es_protocol %>
     <% end %>
-    <% if @username %>
-    username: <%= @username %>
+    <% if @es_username %>
+    es_username: <%= @es_username %>
     <% end %>
-    <% if @password %>
-    password: <%= @password %>
+    <% if @es_password %>
+    es_password: <%= @es_password %>
     <% end %>
 
-    <% if @index %>
+    <% if @es_index %>
     # Custom index location
-    index: <%= @index %>
+    es_index: <%= @es_index %>
     <% end %>
-    <% if @http_path %>
+    <% if @es_http_path %>
     # Custom HTTP path to ES
-    path: <%= @http_path %>
+    path: <%= @es_http_path %>
     <% end %>
 
