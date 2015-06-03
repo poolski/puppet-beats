@@ -33,7 +33,7 @@ class packetbeat (
   $int_snaplen = '1514',
   $int_sniffer_type = 'af_packet',
   $int_buffer_size = '100',
-  $int_ignore_outgoing = 'false',
+  $int_ignore_outgoing = false,
   $agentname = $::fqdn,
   $es_enabled = true,
   $es_host = 'localhost',
