@@ -7,7 +7,7 @@ class packetbeat::config() inherits packetbeat {
     owner  => '0',
   }
 
-  concat { '/etc/packetbeat/packetbeat.conf':
+  concat { '/etc/packetbeat/packetbeat.yml':
     group   => '0',
     mode    => '0755',
     owner   => '0',
@@ -15,17 +15,17 @@ class packetbeat::config() inherits packetbeat {
   }
 
   concat::fragment {'head':
-    target  => '/etc/packetbeat/packetbeat.conf',
-    content => template('packetbeat/packetbeat.conf.erb'),
+    target  => '/etc/packetbeat/packetbeat.yml',
+    content => template('packetbeat/packetbeat.yml.erb'),
     order   => 0,
   }
   concat::fragment {'protocols.header':
-    target  => '/etc/packetbeat/packetbeat.conf',
+    target  => '/etc/packetbeat/packetbeat.yml',
     content => template('packetbeat/protocols/protocols.header.erb'),
     order   => 10,
   }
   concat::fragment {'output.head':
-    target  => '/etc/packetbeat/packetbeat.conf',
+    target  => '/etc/packetbeat/packetbeat.yml',
     content => template('packetbeat/outputs/output.header.erb'),
     order   => 20
   }

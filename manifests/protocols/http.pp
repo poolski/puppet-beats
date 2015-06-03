@@ -6,7 +6,7 @@ class packetbeat::protocols::http (
   $real_ip_header = "X-Forwarded-For"
 ) {
   concat::fragment {"protocols-http":
-    target  => '/etc/packetbeat/packetbeat.conf',
+    target  => '/etc/packetbeat/packetbeat.yml',
     content => template('packetbeat/protocols/protocols.http.erb'),
     order   => 11,
   }

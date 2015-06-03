@@ -10,10 +10,8 @@ class packetbeat::params(
   $enable = 'true',
   $snaplen = '1514',
   $sniffer_type = 'af_packet',
-  $buffer_size = '100'
-){
-
-
-
-}
-
+  $buffer_size = '100',
+  $ignore_outgoing = 'false',
+  $refresh_topology_freq = '15',
+  $split_cookie = 'true'
+){}

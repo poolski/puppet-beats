@@ -3,7 +3,7 @@ class packetbeat::outputs::elasticsearch (
   $port = $packetbeat::elasticsearch_port,
 ) {
   concat::fragment {'output.elasticsearch':
-    target  => '/etc/packetbeat/packetbeat.conf',
+    target  => '/etc/packetbeat/packetbeat.yml',
     content => template('packetbeat/outputs/elasticsearch.erb'),
     order   => 21
   }
