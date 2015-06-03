@@ -1,0 +1,19 @@
+{
+  "author": "Kyrill Poole",
+  "issues_url": "https://github.com/poolski/puppet-packetbeat/issues",
+  "license": "Apache-2.0",
+  "name": "puppet-packetbeat",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "project_page": "https://forge.puppetlabs.com/poolski/puppet-packetbeat",
+  "source": "https://github.com/poolski/puppet-packetbeat",
+  "summary": "A module to manage Elastic's new packet analyzer, Packetbeat",
+  "tags": [],
+  "version": "0.1.0"
+}
