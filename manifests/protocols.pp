@@ -6,6 +6,3 @@ define packetbeat::protocols($protocol,$ports)
     order   => 20,
   }
 }
-
-
-

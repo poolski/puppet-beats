@@ -1,6 +1,6 @@
 class packetbeat::params(
-  $host = 'localhost',
-  $port = '9200',
+  $elasticsearch_host = 'localhost',
+  $elasticsearch_port = '9200',
   $interfaces = 'any',
   $disable_procs = 'true',
   $agentname = $::fqdn ,
@@ -8,6 +8,9 @@ class packetbeat::params(
   $gid = '501',
   $ensure = 'running',
   $enable = 'true',
+  $snaplen = '1514',
+  $sniffer_type = 'af_packet',
+  $buffer_size = '100'
 ){
 
 

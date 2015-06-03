@@ -14,20 +14,17 @@
 #
 # === Authors
 #
-# Kris Buytaert <kris@inuits.eu>
+# @poolski (github)
 #
 # === Copyright
 #
 # GPLv2
 #
 class packetbeat (
-  $host = $packetbeat::params::host,
-  $port = $packetbeat::params::port,
+  $elasticsearch_host = $packetbeat::params::elasticsearch_host,
+  $elasticsearch_port = $packetbeat::params::elasticsearch_port,
   $interfaces = $packetbeat::params::interfaces,
-  $disable_procs = $packetbeat::params::disable_procs,
-  $agentname = $packetbeat::params::agentname ,
-  $uid = $packetbeat::params::uid,
-  $gid = $packetbeat::params::gid,
+  $agentname = $packetbeat::params::agentname,
 ) inherits packetbeat::params {
 
   include packetbeat::package

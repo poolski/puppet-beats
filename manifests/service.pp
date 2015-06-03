@@ -7,7 +7,4 @@ class packetbeat::service(
     ensure => $ensure,
     enable => $enable,
   }
-
-
 }
-

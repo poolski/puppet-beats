@@ -19,18 +19,14 @@ class packetbeat::config() inherits packetbeat {
     content => template('packetbeat/packetbeat.conf.erb'),
     order   => 0,
   }
-
-  concat::fragment {'protocols':
+  concat::fragment {'protocols.header':
     target  => '/etc/packetbeat/packetbeat.conf',
-    content => '[protocols]
-',
-    order   => 19,
+    content => template('packetbeat/protocols/protocols.header.erb'),
+    order   => 10,
   }
-  concat::fragment {'procs':
+  concat::fragment {'output.head':
     target  => '/etc/packetbeat/packetbeat.conf',
-    content => template('packetbeat/procs.conf.erb'),
-    order   => 39,
+    content => template('packetbeat/outputs/output.header.erb'),
+    order   => 20
   }
-
 }
-
