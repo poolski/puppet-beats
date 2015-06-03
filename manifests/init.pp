@@ -58,6 +58,5 @@ class packetbeat (
   $file_path = '/var/log/'
 ) {
   include packetbeat::package, packetbeat::config, packetbeat::service
-  Class['packetbeat::package'] -> Class['packetbeat::config'] ~> Class'packetbeat::service']
-
+  Class['packetbeat::package'] -> Class['packetbeat::config'] ~> Class['packetbeat::service']
 }
