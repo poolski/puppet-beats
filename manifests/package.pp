@@ -8,6 +8,9 @@ class packetbeat::package ($deburl = false, $version = '1.0.0~Beta1'){
     }
   }
 
+  package { 'libpcap0.8':
+    ensure => installed
+  }
   package { 'packetbeat':
     ensure  => installed,
     require => Apt::Localpackage['packetbeat']

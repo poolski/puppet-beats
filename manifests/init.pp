@@ -27,8 +27,6 @@ class packetbeat (
   $agentname = $packetbeat::params::agentname,
 ) inherits packetbeat::params {
 
-  include packetbeat::package
-  include packetbeat::config
-  include packetbeat::service
-
+  include packetbeat::package, packetbeat::config, packetbeat::service
+  Class['packetbeat::package'] -> Class['packetbeat::config'] ~> Class'packetbeat::service']
 }
