@@ -12,7 +12,7 @@
   ],
   "issues_url": "https://github.com/poolski/puppet-packetbeat/issues",
   "license": "Apache-2.0",
-  "name": "puppet-packetbeat",
+  "name": "poolski-packetbeat",
   "project_page": "https://github.com/poolski/puppet-packetbeat",
   "source": "https://github.com/poolski/puppet-packetbeat",
   "summary": "A module to manage Elastic's packet analyzer, Packetbeat",
