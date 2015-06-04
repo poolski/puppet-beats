@@ -16,5 +16,5 @@
   "project_page": "https://github.com/poolski/puppet-packetbeat",
   "source": "https://github.com/poolski/puppet-packetbeat",
   "summary": "A module to manage Elastic's packet analyzer, Packetbeat",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
