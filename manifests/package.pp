@@ -1,7 +1,7 @@
 class packetbeat::package ($deburl = false, $version = '1.0.0~Beta1'){
   include ::wget
 
-  wget::fetch { 'https://download.elasticsearch.org/beats/packetbeat/packetbeat_${version}_amd64.deb':
+  wget::fetch { "https://download.elasticsearch.org/beats/packetbeat/packetbeat_${version}_amd64.deb":
     destination => "'/tmp/packetbeat-${version}.deb",
     timeout     => 0,
     verbose     => false,
