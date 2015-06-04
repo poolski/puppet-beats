@@ -14,6 +14,7 @@ class packetbeat::package ($deburl = false, $version = '1.0.0~Beta1'){
   package { 'packetbeat':
     ensure   => installed,
     provider => dpkg,
-    source   => "/tmp/packetbeat-${version}_amd64.deb"
+    source   => "/tmp/packetbeat-${version}_amd64.deb",
+    require  => Wget::Fetch['packetbeat']
   }
 }
