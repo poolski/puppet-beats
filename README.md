@@ -1,7 +1,3 @@
-packetbeat
-
-This is the packetbeat module.
-
 License
 -------
 Apache V2
