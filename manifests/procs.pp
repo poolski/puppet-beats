@@ -1,11 +1,8 @@
-define packetbeat::procs($procs,$cmdline)
+define packetbeat::procs($proc,$cmdline)
 {
-  concat::fragment {"protocols-${procs}":
+  concat::fragment {"protocols-${proc}":
     target  => '/etc/packetbeat/packetbeat.yml',
     content => template('packetbeat/procs.conf.erb'),
-    order   => 40,
+    order   => 31,
   }
 }
-
-
-

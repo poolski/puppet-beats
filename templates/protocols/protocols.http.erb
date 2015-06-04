@@ -1,13 +1,13 @@
   http:
     ports: [<%= @http_ports %>]
-    <% if @hide_keywords %>
+<% if @hide_keywords %>
     hide_keywords: [
     <% @hide_keywords.each do |kw| -%>
       "<%= kw %>",
     <% end -%>
     ]
-    <% end -%>
-    <% if  @send_headers %>
+<% end -%>
+<% if  @send_headers %>
     send_headers: [
 <% @send_headers.each do |header| -%>
       "<%= header %>",

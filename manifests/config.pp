@@ -8,10 +8,10 @@ class packetbeat::config() inherits packetbeat {
   }
 
   concat { '/etc/packetbeat/packetbeat.yml':
-    group   => '0',
-    mode    => '0755',
-    owner   => '0',
-    notify  => Service['packetbeat']
+    group  => '0',
+    mode   => '0755',
+    owner  => '0',
+    notify => Service['packetbeat']
   }
 
   concat::fragment {'head':
@@ -28,6 +28,12 @@ class packetbeat::config() inherits packetbeat {
     target  => '/etc/packetbeat/packetbeat.yml',
     content => template('packetbeat/outputs/output.header.erb'),
     order   => 20
+  }
+
+  concat::fragment {'procs.head':
+    target  => '/etc/packetbeat/packetbeat.yml',
+    content => template('packetbeat/procs.header.erb'),
+    order   => 30
   }
 
   if $packetbeat::es_enabled {
