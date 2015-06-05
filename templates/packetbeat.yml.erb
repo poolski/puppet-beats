@@ -18,7 +18,7 @@ shipper:
 
 interfaces:
   device: "<%= @interfaces %>"
-  snaplen: <%= @int_snaplen %>
-  type: <%= @int_sniffer_type %>
-  buffer_size_mb: <%= @int_buffer_size %>
+<% if @int_snaplen %>  snaplen: <%= @int_snaplen %><% end -%>
+<% if @int_sniffer_type %>  type: <%= @int_sniffer_type %><% end -%>
+<% if @buffer_size_mb %>  buffer_size_mb: <%= @int_buffer_size %><% end -%>
 
