@@ -3,7 +3,6 @@
     host: <%= @es_host %>
     port: <%= @es_port %>
     es_save_topology: <%= @es_save_topology %>
-    # Protocol and auth credentials
     <%= 'es_protocol:' @es_protocol if @es_protocol? %>
 <% if @es_username %>
     es_username: <%= @es_username %>
