@@ -1,7 +1,7 @@
   http:
     ports: [<%= @http_ports.join(',') %>]
-    hide_keywords: [<% @hide_keywords.each do |kw| -%>"<%= kw %>",<% end -%>]
-    send_headers: [<% @send_headers.each do |header| -%>"<%= header %>",<% end -%>]
+    hide_keywords: [<%= @hide_keywords.join(',').to_json %>]
+    send_headers: [<% @send_headers.join(',').to_json %>]
     real_ip_header: "<%= @real_ip_header %>"
     split_cookie: <%= @split_cookie %>
     
