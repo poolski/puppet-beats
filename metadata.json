@@ -2,10 +2,6 @@
   "author": "poolski",
   "dependencies": [
     {
-      "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 1.0.0"
-    },
-    {
       "name": "maestrodev-wget",
       "version_requirement": ">=1.7.0"
     }
@@ -16,5 +12,5 @@
   "project_page": "https://github.com/poolski/puppet-packetbeat",
   "source": "https://github.com/poolski/puppet-packetbeat",
   "summary": "A module to manage Elastic's packet analyzer, Packetbeat",
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
