@@ -1,6 +1,6 @@
 class packetbeat::service(
-  $enable = $packetbeat::service::enable,
-  $ensure = $packetbeat::service::ensure,
+  $enable = $packetbeat::enable,
+  $ensure = $packetbeat::ensure,
 ) {
 
   service { 'packetbeat':
