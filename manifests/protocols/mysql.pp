@@ -1,8 +1,8 @@
 class packetbeat::protocols::mysql (
-  $protocol = 'mysql',
-  $ports    = '3306',
-  $max_rows = '10',
-  $max_row_length = '1024'
+  $protocol       = 'mysql',
+  $ports          = ['3306'],
+  $max_rows       = undef,
+  $max_row_length = undef
 ) {
   concat::fragment {"protocols-mysql":
     target  => '/etc/packetbeat/packetbeat.yml',

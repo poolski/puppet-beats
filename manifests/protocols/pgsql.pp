@@ -1,8 +1,8 @@
 class packetbeat::protocols::pgsql (
-  $protocol = 'pgsql',
-  $ports    = '5432',
-  $max_rows = '10',
-  $max_row_length = '1024'
+  $protocol       = 'pgsql',
+  $ports          = ['5432'],
+  $max_rows       = undef,
+  $max_row_length = undef
 ) {
   concat::fragment {"protocols-pgsql":
     target  => '/etc/packetbeat/packetbeat.yml',
