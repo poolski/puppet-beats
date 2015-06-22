@@ -3,7 +3,7 @@
   "dependencies": [
     {
       "name": "maestrodev-wget",
-      "version_requirement": "==1.7.0"
+      "version_requirement": "1.7.0"
     }
   ],
   "issues_url": "https://github.com/poolski/puppet-packetbeat/issues",
