@@ -1,4 +1,4 @@
-class packetbeat::package::rpm {
+class packetbeat::package::rpm inherits packetbeat::package {
 
   wget::fetch { 'packetbeat':
     source      => "https://download.elasticsearch.org/beats/packetbeat/packetbeat_${version}_${::architecture}.rpm",

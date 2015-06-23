@@ -1,4 +1,4 @@
-class packetbeat::package::dpkg {
+class packetbeat::package::dpkg inherits packetbeat::package{
 
   wget::fetch { 'packetbeat':
     source      => "https://download.elasticsearch.org/beats/packetbeat/packetbeat_${version}_${::architecture}.deb",
