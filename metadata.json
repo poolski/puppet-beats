@@ -16,10 +16,13 @@
         "6.0",
         "7.0"
       ]
+    },
+    {
+      "operatingsystem": "Redhat"
     }
   ],
   "project_page": "https://github.com/poolski/puppet-packetbeat",
   "source": "https://github.com/poolski/puppet-packetbeat",
   "summary": "A module to manage Elastic's packet analyzer, Packetbeat",
-  "version": "0.1.4"
+  "version": "0.1.5"
 }
