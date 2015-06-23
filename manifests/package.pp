@@ -1,20 +1,17 @@
-class packetbeat::package ($deburl = false, $version = '1.0.0~Beta1'){
+class packetbeat::package ($version = '1.0.0~Beta1'){
   include ::wget
 
-  wget::fetch { 'packetbeat':
-    source      => "https://download.elasticsearch.org/beats/packetbeat/packetbeat_${version}_amd64.deb",
-    destination => "/tmp/packetbeat-${version}_amd64.deb",
-    timeout     => 0,
-    verbose     => false,
-  }
+  case $::osfamily {
 
-  package { 'libpcap0.8':
-    ensure => installed
-  }
-  package { 'packetbeat':
-    ensure   => installed,
-    provider => dpkg,
-    source   => "/tmp/packetbeat-${version}_amd64.deb",
-    require  => Wget::Fetch['packetbeat']
+    'Debian': {
+      class { 'packetbeat::package::dpkg': }
+    }
+
+    'RedHat': {
+      class { 'packetbeat::package::rpm': }
+    }
+
+    default: { fail("${::osfamily} not supported yet") }
+
   }
 }
