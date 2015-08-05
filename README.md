@@ -1,10 +1,9 @@
 License
 -------
-Apache V2
+GPL v2 
 
 
-Currently this module only works on Debian and possibly Ubuntu (untested).
-It's designed to pull down the Debian installer from the official downloads site using the `maestrodev-wget` module, so ensure you have that installed. 
+
 
 ## Example Use ##
 
