@@ -55,8 +55,13 @@ class packetbeat (
   $redis_index              = 'packetbeat',
   $redis_db                 = '0',
   $file_enabled             = false,
-  $file_path                = '/var/log/'
+  $file_path                = '/var/log/',
+  $managerepo               = false,
 ) {
   include packetbeat::package, packetbeat::config, packetbeat::service
+  if $managerepo  {
+    include packetbeat::repo
+  }
   Class['packetbeat::package'] -> Class['packetbeat::config'] ~> Class['packetbeat::service']
+
 }
