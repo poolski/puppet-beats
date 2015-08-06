@@ -1,5 +1,5 @@
-class packetbeat::package ($version = '1.0.0~Beta1'){
-  include ::wget
+class packetbeat::package ($version = '1.0.0-beta2'){
+
 
   case $::osfamily {
 
