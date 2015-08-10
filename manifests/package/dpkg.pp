@@ -1,8 +1,8 @@
 class packetbeat::package::dpkg inherits packetbeat::package{
 
   wget::fetch { 'packetbeat':
-    source      => "https://download.elasticsearch.org/beats/packetbeat/packetbeat_${version}_${::architecture}.deb",
-    destination => "/tmp/packetbeat-${version}_${::architecture}.deb",
+    source      => "https://download.elasticsearch.org/beats/packetbeat/packetbeat_${packetbeat::package::version}_${::architecture}.deb",
+    destination => "/tmp/packetbeat-${packetbeat::package::version}_${::architecture}.deb",
     timeout     => 0,
     verbose     => false,
   }
@@ -14,7 +14,7 @@ class packetbeat::package::dpkg inherits packetbeat::package{
   package { 'packetbeat':
     ensure   => installed,
     provider => dpkg,
-    source   => "/tmp/packetbeat-${version}_${::architecture}.deb",
+    source   => "/tmp/packetbeat-${packetbeat::package::version}_${::architecture}.deb",
     require  => Wget::Fetch['packetbeat']
   }
 }
