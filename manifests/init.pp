@@ -22,9 +22,9 @@
 #
 class beats (
   $agentname             = $::fqdn ,
-  $packetbeat            = true,
-  $filebeat              = false,
-  $topbeat               = false,
+  $enable_packetbeat     = true,
+  $enable_filebeat       = false,
+  $enable_topbeat        = false,
   $tags                  = [],
   $ensure                = 'running',
   $enable                = true,

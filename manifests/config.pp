@@ -24,11 +24,6 @@ class beats::config() inherits beats {
     content => template('beats/runopts.erb'),
     order   => 1,
   }
-  concat::fragment {'protocols.header':
-    target  => '/etc/beats/beats.yml',
-    content => template('beats/protocols/protocols.header.erb'),
-    order   => 10,
-  }
   concat::fragment {'output.head':
     target  => '/etc/beats/beats.yml',
     content => template('beats/outputs/output.header.erb'),

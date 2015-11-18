@@ -1,7 +1,6 @@
 class beats::package (
 	$version = $beats::version,
-	$components = $beats::components,
-	){
+){
 	case $::osfamily {
 		'Debian': {
 			# Install pcap because it's useful and used in packetbeat
@@ -11,14 +10,9 @@ class beats::package (
 
 			# Build the Components hash. 
 			$components = []
-			if $beats::packetbeat { $components << 'packetbeat' }
-			if $beats::filebeat { $components << 'filebeat' }
-			if $beats::topbeat { $components << 'topbeat' }
-
-			# Iterate over components and install each
-			$components.each | String $component| {
-				beats::package::apt {$component:}
-			} 
+			if $beats::enable_packetbeat { include beats::packetbeat }
+			#if $beats::filebeat { 'filebeat' }
+			#if $beats::topbeat { $components << 'topbeat' } 
 		}
 		default: { fail("${::osfamily} not supported yet") }
 	}
