@@ -7,12 +7,12 @@ class beats::packetbeat::config (
 
 	concat::fragment {'packetbeat.header':
 		target  => '/etc/beats/beats.yml',
-    	content => template('beats/packetbeat/packetbeat.yml.erb'),
-    	order   => 10,
+    content => template('beats/packetbeat/packetbeat.yml.erb'),
+    order   => 10,
 	}
-  	concat::fragment {'protocols.header':
-    	target  => '/etc/beats/beats.yml',
-    	content => template('beats/protocols/protocols.header.erb'),
-    	order   => 10,
-  	}
+  concat::fragment {'protocols.header':
+    target  => '/etc/beats/beats.yml',
+    content => template('beats/protocols/protocols.header.erb'),
+    order   => 11,
+  }
 }
