@@ -1,11 +1,11 @@
-class packetbeat::package::rpm inherits packetbeat::package {
+class beats::package::rpm inherits beats::package {
 
 
   package { 'libpcap':
     ensure => installed,
-    before => Package['packetbeat']
+    before => Package['beats']
   }
-  package { 'packetbeat':
+  package { 'beats':
     ensure   => installed,
   }
 }

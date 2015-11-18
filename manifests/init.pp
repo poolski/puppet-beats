@@ -1,6 +1,6 @@
-# == Class: packetbeat
+# == Class: beats
 #
-# Module to deploy PacketBeat
+# Module to deploy beats
 #
 # === Parameters
 #
@@ -9,7 +9,7 @@
 #
 # === Examples
 #
-#  class { packetbeat:
+#  class { beats:
 #  }
 #
 # === Authors
@@ -20,48 +20,36 @@
 #
 # GPLv2
 #
-class packetbeat (
-  $agentname                = $::fqdn ,
-  $tags                     = [],
-  $ensure                   = 'running',
-  $enable                   = true,
-  $uid                      = '501',
-  $gid                      = '501',
-  $disable_procs            = true,
-  $refresh_topology_freq    = '10',
-  $topology_expire          = '15',
-  $ignore_outgoing          = false,
-  $interfaces               = 'any',
-  $int_snaplen              = undef,
-  $int_sniffer_type         = undef,
-  $int_buffer_size          = undef,
-  $es_enabled               = true,
-  $es_host                  = 'localhost',
-  $es_port                  = '9200',
-  $es_username              = undef,
-  $es_password              = undef,
-  $es_protocol              = undef,
-  $es_save_topology         = false,
-  $es_index                 = undef,
-  $es_http_path             = undef,
-  $redis_enabled            = false,
-  $redis_host               = 'localhost',
-  $redis_port               = '6379',
-  $redis_reconnect_interval = undef,
-  $redis_save_topology      = false,
-  $redis_db_topology        = '1',
-  $redis_password           = '',
-  $redis_timeout            = '5',
-  $redis_index              = 'packetbeat',
-  $redis_db                 = '0',
-  $file_enabled             = false,
-  $file_path                = '/var/log/',
-  $managerepo               = false,
+class beats (
+  $agentname             = $::fqdn ,
+  $packetbeat            = true,
+  $filebeat              = false,
+  $topbeat               = false,
+  $tags                  = [],
+  $ensure                = 'running',
+  $enable                = true,
+  $uid                   = '501',
+  $gid                   = '501',
+  $disable_procs         = true,  
+  $managerepo            = true,
+  $version               = '1.0.0-rc2',
+  $refresh_topology_freq = '10',
+  $topology_expire       = '15',
+  $ignore_outgoing       = true,
+  $es_enabled            = true,
+  $es_host               = 'localhost',
+  $es_port               = '9200',
+  $es_username           = undef,
+  $es_password           = undef,
+  $es_protocol           = undef,
+  $es_save_topology      = true,
+  $es_index              = undef,
+  $es_http_path          = undef,
 ) {
-  include packetbeat::package, packetbeat::config, packetbeat::service
+  include beats::package, beats::config, beats::service
   if $managerepo  {
-    include packetbeat::repo
+    include beats::repo
   }
-  Class['packetbeat::package'] -> Class['packetbeat::config'] ~> Class['packetbeat::service']
+  Class['beats::package'] -> Class['beats::config'] ~> Class['beats::service']
 
 }

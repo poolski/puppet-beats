@@ -1,14 +1,14 @@
-class packetbeat::repo {
+class beats::repo {
 
 
   case $::osfamily {
 
     'Debian': {
-      class { 'packetbeat::repo::apt': }
+      class { 'beats::repo::apt': }
     }
 
     'RedHat': {
-      class { 'packetbeat::repo::yum': }
+      class { 'beats::repo::yum': }
     }
 
     default: { fail("${::osfamily} not supported yet") }
