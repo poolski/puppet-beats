@@ -1,4 +1,4 @@
-class beats::packetbeat (
+class beats::packetbeat::install (
   $ensure           = present,
   $interfaces       = 'any',
   $int_snaplen      = undef,
