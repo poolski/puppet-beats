@@ -1,4 +1,4 @@
-class beats::config() inherits beats {
+class beats::config() {
 
   file { '/etc/beats/':
     ensure => 'directory',
