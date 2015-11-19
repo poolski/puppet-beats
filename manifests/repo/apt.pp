@@ -1,4 +1,4 @@
-# Setup the official repos
+# Setup the official repo
 apt::source { 'elastic-beats':
 	comment => 'Official Elastic beats repositories',
 	location => 'https://packages.elastic.co/beats/apt',
