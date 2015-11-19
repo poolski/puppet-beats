@@ -6,12 +6,12 @@ class beats::packetbeat::config(
   $int_buffer_size  = undef,
 ){
   concat::fragment {'packetbeat.header':
-    target  => '/etc/beats/beats.yml',
+    target  => '/etc/packetbeat/packetbeat.yml',
     content => template('beats/packetbeat/packetbeat.yml.erb'),
     order   => 05,
   }
   concat::fragment {'protocols.header':
-    target  => '/etc/beats/beats.yml',
+    target  => '/etc/packetbeat/packetbeat.yml',
     content => template('beats/protocols/protocols.header.erb'),
     order   => 10,
   }
