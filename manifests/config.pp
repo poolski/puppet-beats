@@ -16,7 +16,7 @@ class beats::config() inherits beats {
 
   concat::fragment {'head':
     target  => '/etc/beats/beats.yml',
-    content => template('beats/beats.yml.erb'),
+    content => template('beats/shipper.erb'),
     order   => 0,
   }
   concat::fragment {'runopts':
@@ -28,12 +28,6 @@ class beats::config() inherits beats {
     target  => '/etc/beats/beats.yml',
     content => template('beats/outputs/output.header.erb'),
     order   => 20
-  }
-
-  concat::fragment {'procs.head':
-    target  => '/etc/beats/beats.yml',
-    content => template('beats/procs.header.erb'),
-    order   => 30
   }
 
   if $beats::es_enabled {

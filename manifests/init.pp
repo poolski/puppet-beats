@@ -46,10 +46,10 @@ class beats (
   $es_index              = undef,
   $es_http_path          = undef,
 ) {
-  include beats::package, beats::config, beats::service
+  include beats::package, beats::config
   if $managerepo  {
     include beats::repo
   }
-  Class['beats::package'] -> Class['beats::config'] ~> Class['beats::service']
+  Class['beats::package'] -> Class['beats::config']
 
 }

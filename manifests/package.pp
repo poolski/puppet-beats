@@ -8,9 +8,7 @@ class beats::package (
 				ensure => installed,
 			}
 
-			# Build the Components hash. 
-			$components = []
-			if $beats::enable_packetbeat { include beats::packetbeat }
+			if $beats::enable_packetbeat { include ::beats::packetbeat }
 			#if $beats::filebeat { 'filebeat' }
 			#if $beats::topbeat { $components << 'topbeat' } 
 		}
