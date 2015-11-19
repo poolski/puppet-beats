@@ -15,7 +15,7 @@ class beats::repo::apt() {
   }
   package {'apt-transport-https':
     ensure  => latest,
-    before  => Apt::Source['elastic-beats']
+    before  => Apt::Source['elastic-beats'],
     require => Exec['apt-get update']
   }
 }
