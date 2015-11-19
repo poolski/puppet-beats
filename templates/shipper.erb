@@ -1,10 +1,3 @@
-###
-### Beats Agent configuration file.
-###
-### Packetbeat is a protocol monitoring service that
-### works by sniffing the network traffic between your application
-### components. It dumps the results into Elasticsearch.
-###
 ### THIS FILE IS MANAGED BY PUPPET. DO NOT EDIT DIRECTLY.
 ### EVERY TIME YOU DO, GOD KILLS A KITTEN.
 
@@ -13,3 +6,4 @@ shipper:
   tags: [<% @tags.each do |tag| -%>"<%= tag %>",<% end -%>]
   ignore_outgoing: <%= @int_ignore_outgoing %>
   refresh_topology_freq: <%= @refresh_topology_freq %>
+ 
