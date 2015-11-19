@@ -6,13 +6,11 @@ class beats::config() inherits beats {
     mode   => '0755',
     owner  => '0',
   }
-
   concat { '/etc/beats/beats.yml':
     group  => '0',
     mode   => '0755',
     owner  => '0',
   }
-
   concat::fragment {'head':
     target  => '/etc/beats/beats.yml',
     content => template('beats/shipper.erb'),
