@@ -8,7 +8,7 @@ class beats::package (
         ensure => installed,
       }
 
-      if $beats::enable_packetbeat { contain beats::packetbeat::install }
+      if $beats::enable_packetbeat { contain beats::packetbeat }
       #if $beats::filebeat { 'filebeat' }
       #if $beats::topbeat { $components << 'topbeat' } 
     }
