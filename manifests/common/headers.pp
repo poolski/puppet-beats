@@ -25,4 +25,25 @@ define beats::common::headers (
     content => template('beats/outputs/output.header.erb'),
     order   => 20
   }
+  if $beats::es_enabled {
+    concat::fragment {'${title}-output-elasticsearch':
+      target  => '/etc/${title}/${title}.yml',
+      content => template('beats/outputs/elasticsearch.erb'),
+      order   => 21
+    }
+  }
+  if $beats::redis_enabled {
+    concat::fragment {'${title}-output-redis':
+      target  => '/etc/${title}/${title}.yml',
+      content => template('beats/outputs/redis.erb'),
+      order   => 22
+    }
+  }
+  if $beats::file_enabled {
+    concat::fragment {'${title}-output-file':
+      target  => '/etc/${title}/${title}.yml',
+      content => template('beats/outputs/file.erb'),
+      order   => 23
+    }
+  }
 }
