@@ -22,12 +22,14 @@ class beats::config() {
     content => template('beats/runopts.erb'),
     order   => 02,
   }
+  
+  if $beats::enable_packetbeat { contain beats::packetbeat::config }
+  
   concat::fragment {'beats-common-output-header':
     target  => '/etc/beats/beats.yml',
     content => template('beats/outputs/output.header.erb'),
     order   => 20
   }
-
   if $beats::es_enabled {
     concat::fragment {'output.elasticsearch':
       target  => '/etc/beats/beats.yml',
