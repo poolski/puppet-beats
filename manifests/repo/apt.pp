@@ -13,6 +13,9 @@ class beats::repo::apt() {
       'deb' => true
     }
   }
+  exec {'apt-get update':
+    command => 'apt-get -qq update'
+  }
   package {'apt-transport-https':
     ensure  => latest,
     before  => Apt::Source['elastic-beats'],
