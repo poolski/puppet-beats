@@ -10,6 +10,7 @@ class beats::config() inherits beats {
     group  => '0',
     mode   => '0755',
     owner  => '0',
+    order  => 'numeric',
   }
   concat::fragment {'head':
     target  => '/etc/beats/beats.yml',
