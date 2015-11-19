@@ -13,4 +13,8 @@ class beats::repo::apt() {
       'deb' => true
     }
   }
+  package {'apt-transport-https':
+    ensure => latest,
+    before => Apt::Source['elastic-beats']
+  }
 }
