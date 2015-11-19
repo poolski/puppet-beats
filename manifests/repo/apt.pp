@@ -14,7 +14,8 @@ class beats::repo::apt() {
     }
   }
   exec {'apt-get update':
-    command => 'apt-get -qq update'
+    command => 'apt-get -qq update',
+    path => '/usr/bin'
   }
   package {'apt-transport-https':
     ensure  => latest,
