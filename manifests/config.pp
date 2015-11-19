@@ -11,7 +11,6 @@ class beats::config() inherits beats {
     group  => '0',
     mode   => '0755',
     owner  => '0',
-    notify => Service['beats']
   }
 
   concat::fragment {'head':
