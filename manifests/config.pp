@@ -15,12 +15,12 @@ class beats::config() inherits beats {
   concat::fragment {'head':
     target  => '/etc/beats/beats.yml',
     content => template('beats/shipper.erb'),
-    order   => 0,
+    order   => 01,
   }
   concat::fragment {'runopts':
     target  => '/etc/beats/beats.yml',
     content => template('beats/runopts.erb'),
-    order   => 1,
+    order   => 02,
   }
   concat::fragment {'output.head':
     target  => '/etc/beats/beats.yml',

@@ -21,6 +21,5 @@ class beats::packetbeat (
     target  => '/etc/beats/beats.yml',
     content => template('beats/protocols/protocols.header.erb'),
     order   => 11,
-    notify  => Service['packetbeat']
   }
 }
