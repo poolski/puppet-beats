@@ -15,11 +15,11 @@ class beats::packetbeat (
   concat::fragment {'packetbeat.header':
     target  => '/etc/beats/beats.yml',
     content => template('beats/packetbeat/packetbeat.yml.erb'),
-    order   => 10,
+    order   => 05,
   }
   concat::fragment {'protocols.header':
     target  => '/etc/beats/beats.yml',
     content => template('beats/protocols/protocols.header.erb'),
-    order   => 11,
+    order   => 10,
   }
 }

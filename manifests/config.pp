@@ -2,27 +2,27 @@ class beats::config() {
 
   file { '/etc/beats/':
     ensure => 'directory',
-    group  => '0',
+    group  => 'root',
     mode   => '0755',
-    owner  => '0',
+    owner  => 'root',
   }
   concat { '/etc/beats/beats.yml':
-    group  => '0',
+    group  => 'root',
     mode   => '0755',
-    owner  => '0',
+    owner  => 'root',
     order  => 'numeric',
   }
-  concat::fragment {'head':
+  concat::fragment {'beats-commoon-shipper-config':
     target  => '/etc/beats/beats.yml',
     content => template('beats/shipper.erb'),
     order   => 01,
   }
-  concat::fragment {'runopts':
+  concat::fragment {'beats-common-runopts':
     target  => '/etc/beats/beats.yml',
     content => template('beats/runopts.erb'),
     order   => 02,
   }
-  concat::fragment {'output.head':
+  concat::fragment {'beats-common-output-header':
     target  => '/etc/beats/beats.yml',
     content => template('beats/outputs/output.header.erb'),
     order   => 20
