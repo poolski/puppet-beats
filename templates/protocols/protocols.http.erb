@@ -2,6 +2,7 @@
     ports: [<%= @http_ports.join(',') %>]
     hide_keywords: <%= @hide_keywords.to_json %>
     send_headers: <%= @send_headers.to_json %>
+    send_all_headers: <%= @send_all_headers %>
     real_ip_header: "<%= @real_ip_header %>"
     split_cookie: <%= @split_cookie %>
-    
+    redact_authorization: <%= @redact_authorization %>
