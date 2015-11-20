@@ -29,7 +29,7 @@ class beats::packetbeat::config(
   }
   concat::fragment {'protocols.header':
     target  => '/etc/packetbeat/packetbeat.yml',
-    content => template('beats/protocols/protocols.header.erb'),
+    content => template('beats/protocols.header.erb'),
     order   => 10,
   }
   if $http_enabled { include ::beats::protocols::http }
