@@ -4,6 +4,9 @@ class beats::packetbeat::config(
   $int_snaplen          = undef,
   $int_sniffer_type     = undef,
   $int_buffer_size      = undef,
+  $http_enabled         = true,
+  $mysql_enabled        = false,
+  $pgsql_enabled        = false,
   $http_ports           = ['80', '8080', '8000'], 
   $http_hide_keywords   = [],
   $http_send_headers    = ['Host', 'Cookie'],
@@ -29,4 +32,7 @@ class beats::packetbeat::config(
     content => template('beats/protocols/protocols.header.erb'),
     order   => 10,
   }
+  if $http_enabled { include ::beats::protocols::http }
+  if $mysql_enabled { include ::beats::protocols::mysql }
+  if $pgsql_enabled { include ::beats::protocols::pgsql }
 }
