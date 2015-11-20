@@ -1,8 +1,7 @@
 define beats::outputs::elasticsearch (
-  $hosts                 = ['localhost'],
-  $save_topology         = true,
-  $refresh_topology_freq = $beats::refresh_topology_freq,
-  $ignore_outgoing       = $beats::ignore_outgoing,
+  $hosts         = ['localhost'],
+  $save_topology = true,
+  $index         = 'packetbeat',
 ) {
 
   if $beats::es_enabled {

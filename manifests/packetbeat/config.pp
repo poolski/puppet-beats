@@ -35,4 +35,6 @@ class beats::packetbeat::config(
   if $http_enabled { include ::beats::protocols::http }
   if $mysql_enabled { include ::beats::protocols::mysql }
   if $pgsql_enabled { include ::beats::protocols::pgsql }
+
+  beats::outputs::elasticsearch {'packetbeat':}
 }
