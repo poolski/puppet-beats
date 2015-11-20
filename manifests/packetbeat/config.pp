@@ -12,6 +12,7 @@ class beats::packetbeat::config(
   $http_send_headers    = ['Host', 'Cookie'],
   $http_split_cookie    = true,
   $http_real_ip_header  = 'X-Forwarded-For',
+  $http_redact_authorization = false,
   $mysql_protocol       = 'mysql',
   $mysql_ports          = ['3306'],
   $mysql_max_rows       = undef,
