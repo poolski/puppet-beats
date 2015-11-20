@@ -3,8 +3,8 @@ class beats::protocols::http (
   $hide_keywords        = $beats::packetbeat::config::http_hide_keywords,
   $send_headers         = $beats::packetbeat::config::http_send_headers,
   $split_cookie         = $beats::packetbeat::config::http_split_cookie,
-  $real_ip_header       = $beats::packetbeat::config::http_real_ip_header
-  $redact_authorization = $beats::packetbeat::config::redact_authorization
+  $real_ip_header       = $beats::packetbeat::config::http_real_ip_header,
+  $redact_authorization = $beats::packetbeat::config::http_redact_authorization
 ) {
   concat::fragment {'protocols-http':
     target  => '/etc/packetbeat/packetbeat.yml',
