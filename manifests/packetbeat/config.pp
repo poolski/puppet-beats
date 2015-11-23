@@ -42,6 +42,6 @@ class beats::packetbeat::config(
   # Setup index template:
   exec { 'index-template':
     command => "/usr/bin/curl -XPUT 'http://${beats::es_host}:${beats::es_port}/_template/packetbeat' -d@/etc/packetbeat/packetbeat.template.json",
-    unless  => ["/usr/bin/curl -sq -XGET http://${beats::es_host}:${beats::es_port}/_template/packetbeat|grep 200"]
+    unless  => ["/usr/bin/curl -sqI -XGET http://${beats::es_host}:${beats::es_port}/_template/packetbeat|grep 200"]
   }
 }
