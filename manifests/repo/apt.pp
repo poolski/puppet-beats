@@ -16,7 +16,7 @@ class beats::repo::apt() {
   exec {'apt-get update':
     command => 'apt-get -qq update',
     path => '/usr/bin',
-    unless => Package['apt-transport-https']
+    unless => ["/usr/bin/dpkg -l | grep apt-transport-https"]
   }
   package {'apt-transport-https':
     ensure  => latest,
