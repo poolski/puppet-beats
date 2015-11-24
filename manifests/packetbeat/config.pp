@@ -37,8 +37,6 @@ class beats::packetbeat::config(
   if $mysql_enabled { include ::beats::protocols::mysql }
   if $pgsql_enabled { include ::beats::protocols::pgsql }
 
-  beats::outputs::logstash {'packetbeat':}
-
   # Setup index template:
   exec { 'index-template':
     command => "/usr/bin/curl -XPUT 'http://${beats::es_host}:${beats::es_port}/_template/packetbeat' -d@/etc/packetbeat/packetbeat.template.json",
