@@ -31,9 +31,9 @@ class beats (
   $topology_expire       = '15',
   $uid                   = undef,
   $gid                   = undef,
-  $outputs_logstash      = {}
-  $outputs_elasticsearch = {}
-  $outputs_file          = {}
+  $outputs_logstash      = {},
+  $outputs_elasticsearch = {},
+  $outputs_file          = {},
 ){
   include beats::repo, beats::package, beats::config
   Class['beats::repo'] -> Class['beats::package'] -> Class['beats::config']
