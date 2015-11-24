@@ -33,6 +33,6 @@ class beats (
   $uid                   = undef,
   $gid                   = undef,
 ){
-  include beats::repo, beats::package, beats::config,
+  include beats::repo, beats::package, beats::config
   Class['beats::repo'] -> Class['beats::package'] -> Class['beats::config']
 }
