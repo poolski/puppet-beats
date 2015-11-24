@@ -1,0 +1,5 @@
+  logstash:
+    hosts: [<%= @hosts.join(',') %>]
+    index: <%= @index %>
+    worker: <%= @worker %>
+    loadbalance: <%= @loadbalance %>
