@@ -30,11 +30,4 @@ class beats::packetbeat (
     ensure => running,
     enable => true,
   }
-  # outputs
-  if has_key($outputs, 'elasticsearch') {
-    beats::outputs::elasticsearch {$title:}
-  }
-  if has_key($outputs, 'logstash') {
-    beats::outputs::logstash {$title:}
-  }
 }

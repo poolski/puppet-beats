@@ -19,4 +19,11 @@ class beats::packetbeat::config inherits beats::packetbeat () {
     command => "/usr/bin/curl -XPUT 'http://${beats::es_host}:${beats::es_port}/_template/packetbeat' -d@/etc/packetbeat/packetbeat.template.json",
     unless  => ["/usr/bin/curl -sqI -XGET http://${beats::es_host}:${beats::es_port}/_template/packetbeat|grep 200"]
   }
+  # outputs
+  if has_key($outputs, 'elasticsearch') {
+    beats::outputs::elasticsearch {$title:}
+  }
+  if has_key($outputs, 'logstash') {
+    beats::outputs::logstash {$title:}
+  }
 }
