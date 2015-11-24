@@ -30,4 +30,5 @@ class beats::packetbeat (
     ensure => running,
     enable => true,
   }
+  include beats::packetbeat::config
 }
