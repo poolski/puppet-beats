@@ -21,7 +21,6 @@ class beats::packetbeat (
   $pgsql_ports               = ['5432'],
   $pgsql_max_rows            = undef,
   $pgsql_max_row_length      = undef,
-  $outputs                   = $beats::outputs,
 ){
   package {'packetbeat':
     ensure => $ensure,
