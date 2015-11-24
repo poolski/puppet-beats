@@ -6,10 +6,10 @@ shipper:
   tags: [<% @tags.each do |tag| -%>"<%= tag %>",<% end -%>]
   ignore_outgoing: <%= @int_ignore_outgoing %>
   refresh_topology_freq: <%= @refresh_topology_freq %>
-  <% if @geoip_paths %>
+<% if @geoip_paths %>
   geoip:
-  	paths:
+    paths:
 <% @geoip_paths.each do |path| -%>
-      - "<%= path%>"
+    - "<%= path%>"
 <% end -%>
 <% end -%>
