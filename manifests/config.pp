@@ -5,6 +5,4 @@ class beats::config() {
     mode   => '0755',
     owner  => 'root',
   }
-
-  if $beats::enable_packetbeat { contain beats::packetbeat::config }
 }

@@ -7,10 +7,6 @@ class beats::package (
       package { 'libpcap0.8':
         ensure => installed,
       }
-
-      if $beats::enable_packetbeat { contain beats::packetbeat }
-      #if $beats::filebeat { 'filebeat' }
-      #if $beats::topbeat { $components << 'topbeat' } 
     }
     default: { fail("${::osfamily} not supported yet") }
   }
