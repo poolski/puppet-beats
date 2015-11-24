@@ -1,4 +1,4 @@
-class beats::packetbeat::config inherits beats::packetbeat () {
+class beats::packetbeat::config inherits beats::packetbeat {
   beats::common::headers {'packetbeat':}
   concat::fragment {'packetbeat.header':
     target  => '/etc/packetbeat/packetbeat.yml',
