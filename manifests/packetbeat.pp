@@ -29,5 +29,5 @@ class beats::packetbeat (
     ensure => running,
     enable => true,
   }
-  include beats::packetbeat::config
+  include beats::packetbeat::config ~> Service['packetbeat']
 }
