@@ -1,7 +1,8 @@
-class beats::outputs::elasticsearch (
-  $hosts         = ['localhost'],
+define beats::outputs::elasticsearch (
+  $hosts = ['localhost:9200'],
   $save_topology = true,
-  $index         = 'packetbeat',
+  $index = 'packetbeat',
+  $outputs = $beats::outputs
 ) {
   concat::fragment {"${title}-output-elasticsearch":
     target  => "/etc/${title}/${title}.yml",

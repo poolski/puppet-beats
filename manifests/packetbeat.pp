@@ -21,6 +21,7 @@ class beats::packetbeat (
   $pgsql_ports               = ['5432'],
   $pgsql_max_rows            = undef,
   $pgsql_max_row_length      = undef,
+  $outputs                   = $beats::outputs,
 ){
   package {'packetbeat':
     ensure => $ensure,
@@ -28,5 +29,12 @@ class beats::packetbeat (
   service { 'packetbeat':
     ensure => running,
     enable => true,
+  }
+  # outputs
+  if has_key($outputs, 'elasticsearch') {
+    beats::outputs::elasticsearch {$title:}
+  }
+  if has_key($outputs, 'logstash') {
+    beats::outputs::logstash {$title:}
   }
 }

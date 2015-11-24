@@ -32,6 +32,7 @@ class beats (
   $enable                = true,
   $uid                   = undef,
   $gid                   = undef,
+  $outputs               = {'elasticsearch' => {}},
 ){
   include beats::repo, beats::package, beats::config
   Class['beats::repo'] -> Class['beats::package'] -> Class['beats::config']
