@@ -8,7 +8,8 @@ shipper:
   refresh_topology_freq: <%= @refresh_topology_freq %>
   <% if @geoip_paths %>
   geoip:
-  	paths:<% @geoip_paths.each do |path| -%>
+  	paths:
+<% @geoip_paths.each do |path| -%>
       - "<%= path%>"
 <% end -%>
 <% end -%>
