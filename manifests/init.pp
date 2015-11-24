@@ -36,5 +36,5 @@ class beats (
   $outputs_file          = {},
 ){
   include beats::repo::apt, beats::package, beats::config
-  Class['beats::repo'] -> Class['beats::package'] -> Class['beats::config']
+  Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
 }
