@@ -37,7 +37,7 @@ class beats::packetbeat::config(
   if $mysql_enabled { include ::beats::protocols::mysql }
   if $pgsql_enabled { include ::beats::protocols::pgsql }
 
-  beats::outputs::elasticsearch {'packetbeat':}
+  beats::outputs::logstash {'packetbeat':}
 
   # Setup index template:
   exec { 'index-template':
