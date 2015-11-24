@@ -1,7 +1,7 @@
 class beats::topbeat (
   $ensure           = present,
   $period           = 10,
-  $procs            = [".*"]
+  $procs            = [".*"],
   $stats_system     = true,
   $stats_proc       = true,
   $stats_filesystem = true,
