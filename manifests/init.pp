@@ -35,6 +35,6 @@ class beats (
   $outputs_elasticsearch = {},
   $outputs_file          = {},
 ){
-  include beats::repo, beats::package, beats::config
+  include beats::repo::apt, beats::package, beats::config
   Class['beats::repo'] -> Class['beats::package'] -> Class['beats::config']
 }
