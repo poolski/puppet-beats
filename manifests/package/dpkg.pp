@@ -1,1 +1,0 @@
-class packetbeat::package::dpkg inherits packetbeat::package {}
