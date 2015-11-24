@@ -5,6 +5,7 @@ define beats::common::headers (
   $ignore_outgoing       = $beats::ignore_outgoing,
   $uid                   = $beats::uid,
   $gid                   = $beats::gid,
+  $geoip_paths           = ['/usr/share/GeoIP/GeoIPCity.dat'],
 ) {
   concat { "/etc/${title}/${title}.yml":
     group  => 'root',
