@@ -21,9 +21,9 @@ class beats::packetbeat::config inherits beats::packetbeat {
   }
   # outputs
   if has_key($outputs, 'elasticsearch') {
-    beats::outputs::elasticsearch {$title:}
+    beats::outputs::elasticsearch {'packetbeat'}
   }
   if has_key($outputs, 'logstash') {
-    beats::outputs::logstash {$title:}
+    beats::outputs::logstash {'packetbeat'}
   }
 }
