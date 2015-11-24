@@ -1,4 +1,4 @@
-define beats::outputs::elasticsearch (
+class beats::outputs::elasticsearch (
   $hosts         = ['localhost'],
   $save_topology = true,
   $index         = 'packetbeat',

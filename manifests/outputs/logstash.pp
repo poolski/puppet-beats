@@ -1,4 +1,4 @@
-define beats::outputs::logstash (
+class beats::outputs::logstash (
   $hosts = ["localhost:5044"],
   $index = $title,
   $worker = 2,
