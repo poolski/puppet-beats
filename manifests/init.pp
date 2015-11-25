@@ -38,9 +38,9 @@ class beats (
 ){
 
   if $outputs_deep_merge {
-    $_outputs_logstash = hiera_hash('beats::outputs_logstash')
-    $_outputs_elasticsearch = hiera_hash('beats::outputs_elasticsearch')
-    $_outputs_file = hiera_hash('beats::outputs_file')
+    $_outputs_logstash = hiera_hash('beats::outputs_logstash',{})
+    $_outputs_elasticsearch = hiera_hash('beats::outputs_elasticsearch',{})
+    $_outputs_file = hiera_hash('beats::outputs_file',{})
   }
   else {
     $_outputs_logstash = $outputs_logstash
