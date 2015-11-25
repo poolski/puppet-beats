@@ -31,10 +31,23 @@ class beats (
   $topology_expire       = '15',
   $uid                   = undef,
   $gid                   = undef,
+  $outputs_deep_merge    = false,
   $outputs_logstash      = {},
   $outputs_elasticsearch = {},
   $outputs_file          = {},
 ){
+
+  if $outputs_deep_merge {
+    $_outputs_logstash = hiera_hash('beats::outputs_logstash')
+    $_outputs_elasticsearch = hiera_hash('beats::outputs_elasticsearch')
+    $_outputs_file = hiera_hash('beats::outputs_file')
+  }
+  else {
+    $_outputs_logstash = $outputs_logstash
+    $_outputs_elasticsearch = $outputs_elasticsearch
+    $_outputs_file = $outputs_file
+  }
+
   include beats::repo::apt, beats::package, beats::config
   Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
 }
