@@ -7,8 +7,12 @@ class beats::package (
       package { 'libpcap0.8':
         ensure => installed,
       }
-      package { 'geoip-database-extra': 
-        ensure => installed,
+      case $::lsbdistid {
+        'Debian': {
+          package { 'geoip-database-extra': 
+            ensure => installed,
+          }
+        }
       }
     }
     default: { fail("${::osfamily} not supported yet") }
