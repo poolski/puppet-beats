@@ -57,4 +57,11 @@ class packetbeat::config() inherits packetbeat {
       order   => 23
     }
   }
+  if $packetbeat::logstash_enabled {
+    concat::fragment {'output.logstash':
+      target  => '/etc/packetbeat/packetbeat.yml',
+      content => template('packetbeat/outputs/logstash.erb'),
+      order   => 24,
+    }
+  }
 }
