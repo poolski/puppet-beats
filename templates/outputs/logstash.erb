@@ -1,0 +1,11 @@
+  logstash:
+    enabled: true
+    hosts: <%= @logstash_hosts %>
+<% if @logstash_index %>
+    index: <%= @logstash_index %>
+<% end -%>
+    loadbalance: <%= @logstash_loadbalance %>
+<% if @logstash_port %>
+    port: <%= @logstash_port %>
+<% end -%>
+
