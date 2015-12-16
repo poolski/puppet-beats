@@ -7,7 +7,16 @@ class beats::topbeat (
   $stats_filesystem = true,
 ){
   include ::apt::update
-  include beats::topbeat::install
   include beats::topbeat::config
-  Class['beats::topbeat::install'] -> Class['beats::topbeat::config'] ~> Service['topbeat']
+
+  package {'topbeat':
+    ensure => $ensure,
+    require => Class['apt::update']
+  }
+  service { 'topbeat':
+    ensure => running,
+    enable => true,
+  }
+
+  Package['topbeat'] -> Class['beats::topbeat::config'] ~> Service['topbeat']
 }

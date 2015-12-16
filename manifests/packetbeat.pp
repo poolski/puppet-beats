@@ -23,7 +23,14 @@ class beats::packetbeat (
   $pgsql_max_row_length      = undef,
 ){
   include ::apt::update
-  include beats::packetbeat::install
   include beats::packetbeat::config
-  Class['beats::packetbeat::install'] ->  Class['beats::packetbeat::config'] ~> Service['packetbeat']
+  package {'packetbeat':
+    ensure  => $beats::packetbeat::ensure,
+    require => Class['apt::update']
+  }
+  service { 'packetbeat':
+    ensure => running,
+    enable => true,
+  }  
+  Package['packetbeat'] -> Class['beats::packetbeat::config'] ~> Service['packetbeat']
 }
