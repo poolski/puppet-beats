@@ -22,8 +22,11 @@ class beats::packetbeat (
   $pgsql_max_rows            = undef,
   $pgsql_max_row_length      = undef,
 ){
+  include ::apt::update
+
   package {'packetbeat':
-    ensure => $ensure,
+    ensure  => $ensure,
+    require => Class['apt::update']
   }
   service { 'packetbeat':
     ensure => running,

@@ -6,8 +6,11 @@ class beats::topbeat (
   $stats_proc       = true,
   $stats_filesystem = true,
 ){
+  include ::apt::update
+
   package {'topbeat':
     ensure => $ensure,
+    require => Class['apt::update']
   }
   service { 'topbeat':
     ensure => running,
