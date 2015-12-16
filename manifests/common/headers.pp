@@ -12,6 +12,7 @@ define beats::common::headers (
     mode   => '0755',
     owner  => 'root',
     order  => 'numeric',
+    require => Package[$title],
   }
   concat::fragment {"${title}-commoon-shipper-config":
     target  => "/etc/${title}/${title}.yml",
