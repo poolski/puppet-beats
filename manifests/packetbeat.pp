@@ -25,5 +25,5 @@ class beats::packetbeat (
   include ::apt::update
   include beats::packetbeat::install
   include beats::packetbeat::config
-  Class['beats::packetbeat::config'] -> Class['beats::packetbeat::config'] ~> Service['packetbeat']
+  Class['beats::packetbeat::install'] ->  Class['beats::packetbeat::config'] ~> Service['packetbeat']
 }
