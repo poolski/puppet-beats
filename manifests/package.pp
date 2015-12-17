@@ -10,4 +10,19 @@ class beats::package (
     }
     default: { fail("${::osfamily} not supported yet") }
   }
+  if $beats::manage_geoip {
+    case $::lsbdistid {
+      'Ubuntu': {
+        package { 'geoip-database-contrib':
+          ensure => latest,
+        }
+      }
+      'Debian': {
+        package { 'geoip-database-extra':
+          ensure => latest,
+        }
+      }
+      default: { fail("${::osfamily} not supported yet") }
+    }
+  }
 }
