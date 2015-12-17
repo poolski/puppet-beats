@@ -39,6 +39,7 @@ class beats (
   $pgsql_enabled         = false,
   $mysql_enabled         = false,
   $redis_enabled         = false,
+  $manage_geoip          = true,
 ){
 
   if $outputs_deep_merge {
@@ -50,6 +51,21 @@ class beats (
     $_outputs_logstash = $outputs_logstash
     $_outputs_elasticsearch = $outputs_elasticsearch
     $_outputs_file = $outputs_file
+  }
+
+  if $manage_geoip {
+    case $::lsbdistid {
+      'Ubuntu': {
+        package { 'geoip-database-contrib':
+          ensure => latest,
+        }
+      }
+      'Debian': {
+        package { 'geoip-database-extra':
+          ensure => latest,
+        }
+      }
+    }
   }
 
   include beats::repo::apt, beats::package, beats::config
