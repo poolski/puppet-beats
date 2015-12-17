@@ -13,6 +13,7 @@ class beats::packetbeat::config inherits beats::packetbeat {
   if $http_enabled { include ::beats::protocols::http }
   if $mysql_enabled { include ::beats::protocols::mysql }
   if $pgsql_enabled { include ::beats::protocols::pgsql }
+  if $redis_enabled { include ::beats::protocols::redis }
 
   # Setup index template - TODO
   #exec { 'index-template':

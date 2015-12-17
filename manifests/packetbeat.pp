@@ -7,6 +7,7 @@ class beats::packetbeat (
   $http_enabled              = $beats::http_enabled,
   $mysql_enabled             = $beats::mysql_enabled,
   $pgsql_enabled             = $beats::pgsql_enabled,
+  $redis_enabled             = $beats::redis_enabled,
   $http_ports                = ['80', '8080', '8000'], 
   $http_hide_keywords        = [],
   $http_send_headers         = ['Host'],

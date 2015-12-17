@@ -38,6 +38,7 @@ class beats (
   $http_enabled          = true,
   $pgsql_enabled         = false,
   $mysql_enabled         = false,
+  $redis_enabled         = false,
 ){
 
   if $outputs_deep_merge {
