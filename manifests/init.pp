@@ -53,20 +53,7 @@ class beats (
     $_outputs_file = $outputs_file
   }
 
-  if $manage_geoip {
-    case $::lsbdistid {
-      'Ubuntu': {
-        package { 'geoip-database-contrib':
-          ensure => latest,
-        }
-      }
-      'Debian': {
-        package { 'geoip-database-extra':
-          ensure => latest,
-        }
-      }
-    }
-  }
+  
 
   include beats::repo::apt, beats::package, beats::config
   Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
