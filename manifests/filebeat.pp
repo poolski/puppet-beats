@@ -3,7 +3,7 @@ class beats::filebeat (
   $idle_timeout  = '5s',
   $prospectors   = {},
   $registry_file = '/var/lib/filebeat/registry',
-  $spool_size    = '1024',
+  $spool_size    = 1024,
 ){
 
   beats::common::headers {'filebeat':}
@@ -24,7 +24,9 @@ class beats::filebeat (
     ensure => running,
     enable => true,
   }
-  if $prospectors { create_resources('::beats::filebeat::prospector', $prospectors ) }
+  if $prospectors { 
+    create_resources('::beats::filebeat::prospector', $prospectors ) 
+  }
 
   Package['filebeat'] -> Concat::Fragment['filebeat.header'] ~> Service['filebeat']
 }
