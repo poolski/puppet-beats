@@ -23,7 +23,7 @@ class beats::filebeat (
     ensure => running,
     enable => true,
   }
-  create_resources('::beats::filebeat::prospector', $prospectors)
+  if ($prospectors.empty? == false) { create_resources('::beats::filebeat::prospector', $prospectors ) }
 
   Package['filebeat'] -> Concat::Fragment['filebeat.header'] -> ::Beats::Filebeat::Prospectors <||> ~> Service['filebeat']
 }
