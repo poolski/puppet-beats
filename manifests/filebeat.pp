@@ -25,5 +25,5 @@ class beats::filebeat (
   }
   create_resources('::beats::filebeat::prospector', $prospectors)
 
-  Package['filebeat'] -> Concat::Fragment['filebeat.header'] -> Create_Resources['::beats::filebeat::prospectors'] ~> Service['filebeat']
+  Package['filebeat'] -> Concat::Fragment['filebeat.header'] -> Beats::Filebeat::Prospectors <||> ~> Service['filebeat']
 }
