@@ -1,11 +1,11 @@
-<% @prospectors.each do |key,prospector_hash| %>
+<% @prospectors.each do |prospector_hash| %>
     -
       paths:<% prospector_hash['paths'].each do |path| %>
         - <%= path %>
-      <% end %>
+      <%- end %>
       fields:<% prospector_hash['fields'].each do |key, value| %>
-        <%= key -%>: <%- value %>
-      <% end %>
+        <%= key -%>: <%= value %>
+      <%- end %>
       encoding: <%= @encoding %>
       input_type: <%= @input_type %>
       ignore_older: <%= @ignore_older %>
