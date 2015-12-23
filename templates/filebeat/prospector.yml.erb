@@ -1,9 +1,9 @@
 <% @prospectors.each do |prospector| -%>
     -
-      paths:<%= prospector['paths'].each do |path| -%>
+      paths:<% prospector['paths'].each do |path| -%>
         - <%= path %>
       <%= end -%>
-      fields:<%= prospector['fields'].each do |key, value| -%>
+      fields:<% prospector['fields'].each do |key, value| -%>
         <%= key -%>: <%= value %>
       <%=end -%>
       encoding: <%- @encoding -%>
