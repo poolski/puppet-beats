@@ -6,16 +6,17 @@
       fields:<% prospector_hash['fields'].each do |key, value| %>
         <%= key -%>: <%= value %>
       <%- end %>
-      encoding: <%= @encoding %>
-      input_type: <%= @input_type %>
-      ignore_older: <%= @ignore_older %>
-      document_type: <%= @document_type %>
-      scan_frequency: <%= @scan_frequency %>
-      harvester_buffer_size: <%= @harvester_buffer_size %>
-      tail_files: <%= @tail_files %>
-      backoff: <%= @backoff %>
-      max_backoff: <%= @max_backoff %>
-      backoff_factor: <%= @backoff_factor %>
-      partial_line_waiting: <%= @partial_line_waiting %>
-      force_close_files: <%= @force_close_files %>
+      encoding: plain
+      input_type: log
+      #ignore_older: 24h
+      #document_type: log
+      #scan_frequency: 10s
+      #harvester_buffer_size: 16384
+      tail_files: true
+      backoff: 1s
+      max_backoff: 10s
+      backoff_factor: 2
+      partial_line_waiting: 5s
+      force_close_files: false
+
 <% end -%>
