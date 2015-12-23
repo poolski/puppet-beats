@@ -1,4 +1,4 @@
-<% @prospectors.each do |prospector_hash| %>
+<% @prospectors.each do |key,prospector_hash| %>
     -
       paths:<% prospector_hash['paths'].each do |path| %>
         - <%= path %>
