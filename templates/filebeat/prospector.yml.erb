@@ -2,10 +2,10 @@
     -
       paths:<% prospector['paths'].each do |path| -%>
         - <%= path %>
-      <%= end -%>
+      <% end -%>
       fields:<% prospector['fields'].each do |key, value| -%>
         <%= key -%>: <%= value %>
-      <%=end -%>
+      <% end -%>
       encoding: <%- @encoding -%>
       input_type: <%- @input_type -%>
       ignore_older: <%- @ignore_older -%>
