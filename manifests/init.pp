@@ -31,7 +31,7 @@ class beats (
   $topology_expire       = '15',
   $uid                   = undef,
   $gid                   = undef,
-  $outputs_deep_merge    = false,
+  $outputs_deep_merge    = true,
   $outputs_logstash      = {},
   $outputs_elasticsearch = {},
   $outputs_file          = {},
