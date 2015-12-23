@@ -17,7 +17,7 @@ define beats::filebeat::prospector(
   concat::fragment {"prospector-$title":
     target  => '/etc/filebeat/filebeat.yml',
     content => template('beats/filebeat/prospector.yml.erb'),
-    order   => 15,
+    order   => 16,
     notify  => Service['filebeat'],
   }
 }
