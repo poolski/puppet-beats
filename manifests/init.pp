@@ -23,7 +23,7 @@
 class beats (
   $agentname             = $::fqdn ,
   $tags                  = [],
-  $version               = '1.0.0-rc2',
+  $version               = 'latest',
   $ensure                = 'running',
   $enable                = true,
   $ignore_outgoing       = true,
@@ -52,8 +52,6 @@ class beats (
     $_outputs_elasticsearch = $outputs_elasticsearch
     $_outputs_file = $outputs_file
   }
-
-  
 
   include beats::repo::apt, beats::package, beats::config
   Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
