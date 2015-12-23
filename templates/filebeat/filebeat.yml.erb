@@ -1,0 +1,7 @@
+# Filebeat
+filebeat:
+  spool_size: <%= @spool_size -%>
+  idle_timeout: <%= @idle_timeout -%>
+  registry_file: <%= @registry_file -%>
+  # List of prospectors to fetch data.
+  prospectors:
