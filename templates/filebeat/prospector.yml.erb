@@ -4,18 +4,18 @@
         - <%= path %>
       <% end %>
       fields:<% prospector_hash['fields'].each do |key, value| %>
-        <%= key -%>: <%= value %>
+        <%= key -%>: <%- value %>
       <% end %>
-      encoding: <%- @encoding %>
-      input_type: <%- @input_type %>
-      ignore_older: <%- @ignore_older %>
-      document_type: <%- @document_type %>
-      scan_frequency: <%- @scan_frequency %>
-      harvester_buffer_size: <%- @harvester_buffer_size %>
-      tail_files: <%- @tail_files %>
-      backoff: <%- @backoff %>
-      max_backoff: <%- @max_backoff %>
-      backoff_factor: <%- @backoff_factor %>
-      partial_line_waiting: <%- @partial_line_waiting %>
-      force_close_files: <%- @force_close_files %>
+      encoding: <%= @encoding %>
+      input_type: <%= @input_type %>
+      ignore_older: <%= @ignore_older %>
+      document_type: <%= @document_type %>
+      scan_frequency: <%= @scan_frequency %>
+      harvester_buffer_size: <%= @harvester_buffer_size %>
+      tail_files: <%= @tail_files %>
+      backoff: <%= @backoff %>
+      max_backoff: <%= @max_backoff %>
+      backoff_factor: <%= @backoff_factor %>
+      partial_line_waiting: <%= @partial_line_waiting %>
+      force_close_files: <%= @force_close_files %>
 <% end -%>
