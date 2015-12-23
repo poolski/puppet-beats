@@ -1,13 +1,13 @@
 define beats::filebeat::prospector(
-  $paths                 = [ '/var/log/syslog' ],
-  $fields                = { type => "syslog"},
+  $paths                 = [],
+  $fields                = {},
   $encoding              = 'plain',
   $input_type            = 'log',
   $ignore_older          = '24h',
   $document_type         = 'log',
   $scan_frequency        = '10s',
   $harvester_buffer_size = '16384',
-  $tail_files            = true
+  $tail_files            = true,
   $backoff               = '1s',
   $max_backoff           = '10s',
   $backoff_factor        = '2',
