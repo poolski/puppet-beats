@@ -1,9 +1,9 @@
-<% @prospectors.each do |prospector| -%>
+<% @prospectors.each do |key,prospector_hash| %>
     -
-      paths:<% prospector['paths'].each do |path| %>
+      paths:<% prospector_hash['paths'].each do |path| %>
         - <%= path %>
       <% end %>
-      fields:<% prospector['fields'].each do |key, value| %>
+      fields:<% prospector_hash['fields'].each do |key, value| %>
         <%= key -%>: <%= value %>
       <% end %>
       encoding: <%- @encoding %>
@@ -16,6 +16,6 @@
       backoff: <%- @backoff %>
       max_backoff: <%- @max_backoff %>
       backoff_factor: <%- @backoff_factor %>
-      partial_line_waiting: <%- @partial_line_waiting %>
+      partial_line_waiting: "<%- @partial_line_waiting %>"
       force_close_files: <%- @force_close_files %>
 <% end -%>
