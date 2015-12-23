@@ -18,5 +18,6 @@ define beats::filebeat::prospector(
     target  => '/etc/filebeat/filebeat.yml',
     content => template('beats/filebeat/prospector.yml.erb'),
     order   => 15,
+    notify  => Service['filebeat'],
   }
 }
