@@ -1,15 +1,15 @@
 define beats::filebeat::prospector(
   $paths                 = [],
   $fields                = {},
-  $encoding              = 'plain',
-  $ignore_older          = '24h',
-  $scan_frequency        = '10s',
-  $harvester_buffer_size = 16384,
+  $encoding              = undef,
+  $ignore_older          = undef,
+  $scan_frequency        = undef,
+  $harvester_buffer_size = undef,
   $tail_files            = true,
-  $backoff               = '1s',
-  $max_backoff           = '10s',
-  $backoff_factor        = 2,
-  $partial_line_waiting  = '5s',
+  $backoff               = undef,
+  $max_backoff           = undef,
+  $backoff_factor        = undef,
+  $partial_line_waiting  = undef,
   $force_close_files     = false,
 ){
   concat::fragment {"prospector-$title":
