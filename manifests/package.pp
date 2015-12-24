@@ -1,3 +1,4 @@
+# Install beats packages
 class beats::package (
   $version = $beats::version,
 ){

@@ -1,3 +1,4 @@
+# HTTP
 class beats::protocols::http (
   $http_ports           = $beats::packetbeat::config::http_ports,
   $hide_keywords        = $beats::packetbeat::config::http_hide_keywords,

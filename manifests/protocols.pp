@@ -1,3 +1,5 @@
+# Define::beats::protocols 
+# Sets up protocols. I think it's redundant...?
 define beats::protocols($protocol,$ports)
 {
   concat::fragment {"protocols-${protocol}":

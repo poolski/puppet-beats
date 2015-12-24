@@ -1,3 +1,4 @@
+# Not sure this is used anymore...
 define beats::procs($proc,$cmdline)
 {
   concat::fragment {"protocols-${proc}":

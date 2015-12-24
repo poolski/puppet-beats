@@ -1,3 +1,5 @@
+# Define beats::outputs::elasticsearch
+# Sets up ES outputs. If there's more than one...
 define beats::outputs::elasticsearch (
   $hosts = ['localhost:9200'],
   $save_topology = true,

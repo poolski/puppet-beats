@@ -1,3 +1,4 @@
+# Basic config common to all beats
 class beats::config() {
   file { '/etc/beats/':
     ensure => 'directory',

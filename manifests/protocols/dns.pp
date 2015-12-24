@@ -1,3 +1,4 @@
+# DNS
 class beats::protocols::dns (
   $ports    = ['53']
 ) {

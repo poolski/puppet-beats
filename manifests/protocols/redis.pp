@@ -1,3 +1,4 @@
+# Redis
 class beats::protocols::redis (
   $ports    = '6379'
 ) {
