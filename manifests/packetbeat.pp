@@ -1,3 +1,4 @@
+# Packetbeat class
 class beats::packetbeat (
   $ensure                    = present,
   $interfaces                = 'any',
@@ -8,7 +9,7 @@ class beats::packetbeat (
   $mysql_enabled             = $beats::mysql_enabled,
   $pgsql_enabled             = $beats::pgsql_enabled,
   $redis_enabled             = $beats::redis_enabled,
-  $http_ports                = ['80', '8080', '8000'], 
+  $http_ports                = ['80', '8080', '8000'],
   $http_hide_keywords        = [],
   $http_send_headers         = ['Host'],
   $http_split_cookie         = true,
@@ -32,6 +33,7 @@ class beats::packetbeat (
   service { 'packetbeat':
     ensure => running,
     enable => true,
-  }  
-  Package['packetbeat'] -> Class['beats::packetbeat::config'] ~> Service['packetbeat']
+  }
+  Package['packetbeat'] -> Class['beats::packetbeat::config'] ~>
+  Service['packetbeat']
 }

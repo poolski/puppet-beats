@@ -1,3 +1,4 @@
+# Postgres
 class beats::protocols::pgsql (
   $protocol       = $beats::packetbeat::config::pgsql_protocol,
   $ports          = $beats::packetbeat::config::pgsql_ports,

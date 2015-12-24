@@ -1,6 +1,5 @@
+# Set up repos
 class beats::repo {
-
-
   case $::osfamily {
 
     'Debian': {
@@ -12,6 +11,5 @@ class beats::repo {
     }
 
     default: { fail("${::osfamily} not supported yet") }
-
   }
 }

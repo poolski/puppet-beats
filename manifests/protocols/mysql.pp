@@ -1,3 +1,4 @@
+# Mysql
 class beats::protocols::mysql (
   $protocol       = $beats::packetbeat::config::mysql_protocol,
   $ports          = $beats::packetbeat::config::mysql_ports,

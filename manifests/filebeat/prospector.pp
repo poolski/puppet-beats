@@ -1,3 +1,5 @@
+# Define::filebeat::prospector
+# Creates prospectors for filebeat
 define beats::filebeat::prospector(
   $paths                 = [],
   $fields                = {},
@@ -12,7 +14,7 @@ define beats::filebeat::prospector(
   $partial_line_waiting  = undef,
   $force_close_files     = false,
 ){
-  concat::fragment {"prospector-$title":
+  concat::fragment {"prospector-${title}":
     target  => '/etc/filebeat/filebeat.yml',
     content => template('beats/filebeat/prospector.yml.erb'),
     order   => 17,

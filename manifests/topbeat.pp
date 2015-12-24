@@ -1,7 +1,8 @@
+# Topbeat class
 class beats::topbeat (
   $ensure           = present,
   $period           = 10,
-  $procs            = [".*"],
+  $procs            = ['.*'],
   $stats_system     = true,
   $stats_proc       = true,
   $stats_filesystem = true,
@@ -10,7 +11,7 @@ class beats::topbeat (
   include beats::topbeat::config
 
   package {'topbeat':
-    ensure => $ensure,
+    ensure  => $ensure,
     require => Class['apt::update']
   }
   service { 'topbeat':

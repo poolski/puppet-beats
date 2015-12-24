@@ -1,3 +1,4 @@
+# Create header blocks for beats
 define beats::common::headers (
   $agentname             = $beats::agentname,
   $tags                  = $beats::tags,
@@ -8,10 +9,10 @@ define beats::common::headers (
   $geoip_paths           = ['/usr/share/GeoIP/GeoIPCity.dat'],
 ) {
   concat { "/etc/${title}/${title}.yml":
-    group  => 'root',
-    mode   => '0755',
-    owner  => 'root',
-    order  => 'numeric',
+    group   => 'root',
+    mode    => '0755',
+    owner   => 'root',
+    order   => 'numeric',
     require => Package[$title],
   }
   concat::fragment {"${title}-commoon-shipper-config":
