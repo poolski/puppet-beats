@@ -30,5 +30,5 @@
   "project_page": "https://github.com/poolski/puppet-beats",
   "source": "https://github.com/poolski/puppet-beats",
   "summary": "A puppet module to manage Elastic's beats data shippers",
-  "version": "0.5.0"
+  "version": "0.5.1"
 }
