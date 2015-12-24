@@ -1,9 +1,9 @@
-class packetbeat::protocols::redis (
-  $ports    = '3306'
+class beats::protocols::redis (
+  $ports    = '6379'
 ) {
   concat::fragment {'protocols-redis':
     target  => '/etc/packetbeat/packetbeat.yml',
-    content => template('packetbeat/protocols/protocols.redis.erb'),
+    content => template('beats/protocols/protocols.redis.erb'),
     order   => 14,
   }
 }

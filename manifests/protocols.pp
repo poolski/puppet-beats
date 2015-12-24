@@ -1,8 +1,8 @@
-define packetbeat::protocols($protocol,$ports)
+define beats::protocols($protocol,$ports)
 {
   concat::fragment {"protocols-${protocol}":
-    target  => '/etc/packetbeat/packetbeat.conf',
-    content => template('packetbeat/protocols.conf.erb'),
+    target  => '/etc/beats/beats.conf',
+    content => template('beats/protocols.conf.erb'),
     order   => 20,
   }
 }

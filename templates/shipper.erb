@@ -1,0 +1,15 @@
+### THIS FILE IS MANAGED BY PUPPET. DO NOT EDIT DIRECTLY.
+### EVERY TIME YOU DO, GOD KILLS A KITTEN.
+
+shipper:
+  name: "<%= @agentname %>"
+  <% if @tags != [] %>tags: [<% @tags.each do |tag| -%>"<%= tag %>",<% end -%>]<%- end %>
+  ignore_outgoing: <%= @ignore_outgoing %>
+  refresh_topology_freq: <%= @refresh_topology_freq %><% if @geoip_paths %>
+  geoip:
+    paths:
+<% @geoip_paths.each do |path| -%>
+    - "<%= path%>"
+<% end -%>
+<% end -%>
+

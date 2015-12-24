@@ -1,6 +1,6 @@
-# == Class: packetbeat
+# == Class: beats
 #
-# Module to deploy PacketBeat
+# Module to deploy beats
 #
 # === Parameters
 #
@@ -9,7 +9,7 @@
 #
 # === Examples
 #
-#  class { packetbeat:
+#  class { beats:
 #  }
 #
 # === Authors
@@ -20,53 +20,39 @@
 #
 # GPLv2
 #
-class packetbeat (
-  $agentname                = $::fqdn ,
-  $tags                     = [],
-  $ensure                   = 'running',
-  $enable                   = true,
-  $uid                      = '501',
-  $gid                      = '501',
-  $disable_procs            = true,
-  $refresh_topology_freq    = '10',
-  $topology_expire          = '15',
-  $ignore_outgoing          = false,
-  $interfaces               = 'any',
-  $int_snaplen              = undef,
-  $int_sniffer_type         = undef,
-  $int_buffer_size          = undef,
-  $es_enabled               = true,
-  $es_host                  = 'localhost',
-  $es_port                  = '9200',
-  $es_username              = undef,
-  $es_password              = undef,
-  $es_protocol              = undef,
-  $es_save_topology         = false,
-  $es_index                 = undef,
-  $es_http_path             = undef,
-  $logstash_enabled         = false,
-  $logstash_hosts           = ['localhost'],
-  $logstash_index           = undef,
-  $logstash_port            = undef,
-  $logstash_loadbalance     = true,
-  $redis_enabled            = false,
-  $redis_host               = 'localhost',
-  $redis_port               = '6379',
-  $redis_reconnect_interval = undef,
-  $redis_save_topology      = false,
-  $redis_db_topology        = '1',
-  $redis_password           = '',
-  $redis_timeout            = '5',
-  $redis_index              = 'packetbeat',
-  $redis_db                 = '0',
-  $file_enabled             = false,
-  $file_path                = '/var/log/',
-  $managerepo               = false,
-) {
-  include packetbeat::package, packetbeat::config, packetbeat::service
-  if $managerepo  {
-    include packetbeat::repo
-  }
-  Class['packetbeat::package'] -> Class['packetbeat::config'] ~> Class['packetbeat::service']
+class beats (
+  $agentname             = $::fqdn ,
+  $tags                  = [],
+  $version               = 'latest',
+  $ensure                = 'running',
+  $enable                = true,
+  $ignore_outgoing       = true,
+  $refresh_topology_freq = '10',
+  $topology_expire       = '15',
+  $uid                   = undef,
+  $gid                   = undef,
+  $outputs_deep_merge    = true,
+  $outputs_logstash      = {},
+  $outputs_elasticsearch = {},
+  $outputs_file          = {},
+  $http_enabled          = true,
+  $pgsql_enabled         = false,
+  $mysql_enabled         = false,
+  $redis_enabled         = false,
+  $manage_geoip          = true,
+){
 
+  if $outputs_deep_merge {
+    $_outputs_logstash = hiera_hash('beats::outputs_logstash',{})
+    $_outputs_elasticsearch = hiera_hash('beats::outputs_elasticsearch',{})
+    $_outputs_file = hiera_hash('beats::outputs_file',{})
+  }
+  else {
+    $_outputs_logstash = $outputs_logstash
+    $_outputs_elasticsearch = $outputs_elasticsearch
+    $_outputs_file = $outputs_file
+  }
+
+  include beats::repo::apt, beats::package, beats::config
+  Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
 }

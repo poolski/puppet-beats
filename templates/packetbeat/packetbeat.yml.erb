@@ -1,0 +1,7 @@
+# Packetbeat
+interfaces:
+  device: "<%= @interfaces %>"
+<% if @int_snaplen %>  snaplen: <%= @int_snaplen %><% end -%>
+<% if @int_sniffer_type %>  type: <%= @int_sniffer_type %><% end -%>
+<% if @buffer_size_mb %>  buffer_size_mb: <%= @int_buffer_size %><% end -%>
+<% if @bpf_filter %>  bpf_filter: <%= @bpf_filter %><% end %>

@@ -1,17 +1,28 @@
-class packetbeat::package ($version = '1.0.0-beta2'){
-
-
+class beats::package (
+  $version = $beats::version,
+){
   case $::osfamily {
-
     'Debian': {
-      class { 'packetbeat::package::dpkg': }
+      # Install pcap because it's useful and used in packetbeat
+      package { 'libpcap0.8':
+        ensure => installed,
+      }
     }
-
-    'RedHat': {
-      class { 'packetbeat::package::rpm': }
-    }
-
     default: { fail("${::osfamily} not supported yet") }
-
+  }
+  if $beats::manage_geoip {
+    case $::lsbdistid {
+      'Ubuntu': {
+        package { 'geoip-database-contrib':
+          ensure => latest,
+        }
+      }
+      'Debian': {
+        package { 'geoip-database-extra':
+          ensure => latest,
+        }
+      }
+      default: { fail("${::osfamily} not supported yet") }
+    }
   }
 }

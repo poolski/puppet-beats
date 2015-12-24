@@ -1,0 +1,16 @@
+
+# Topbeat
+input:
+  # In seconds, defines how often to read server statistics
+  period: <%= @period %>
+
+  # Regular expression to match the processes that are monitored
+  # By default, all the processes are monitored
+  procs: <%= @procs.to_json %>
+
+  # Statistics to collect (all enabled by default)
+  stats:
+    system: <%= @stats_system %>
+    proc: <%= @stats_proc %>
+    filesystem: <%= @stats_filesystem %>
+
