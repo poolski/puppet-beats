@@ -1,3 +1,4 @@
+# Filebeat
 class beats::filebeat (
   $ensure        = present,
   $idle_timeout  = '5s',
@@ -17,16 +18,17 @@ class beats::filebeat (
   include ::apt::update
 
   package {'filebeat':
-    ensure => $ensure,
+    ensure  => $ensure,
     require => Class['apt::update']
   }
   service { 'filebeat':
     ensure => running,
     enable => true,
   }
-  if $prospectors { 
-    create_resources('::beats::filebeat::prospector', $prospectors ) 
+  if $prospectors {
+    create_resources('::beats::filebeat::prospector', $prospectors )
   }
 
-  Package['filebeat'] -> Concat::Fragment['filebeat.header'] -> Beats::Filebeat::Prospector <||> ~> Service['filebeat']
+  Package['filebeat'] -> Concat::Fragment['filebeat.header'] -> 
+  Beats::Filebeat::Prospector <||> ~> Service['filebeat']
 }
