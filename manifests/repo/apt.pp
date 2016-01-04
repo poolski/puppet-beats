@@ -18,9 +18,5 @@ class beats::repo::apt() {
     path => '/usr/bin',
     unless => ['/usr/bin/dpkg -l | /bin/grep apt-transport-https']
   }
-  package {'apt-transport-https':
-    ensure  => latest,
-    before  => Apt::Source['elastic-beats'],
-    require => Exec['apt-get update']
-  }
+  ensure_packages('apt-transport-https')
 }
