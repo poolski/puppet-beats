@@ -15,12 +15,23 @@ class beats::filebeat (
     notify  => Service['filebeat'],
   }
 
-  include ::apt::update
+  case $::osfamily {
+    'RedHat': {
+      package {'filebeat':
+        ensure  => $ensure,
+        require => Yumrepo['elastic-beats']
+      }
+    }
+    default: {
+      include ::apt::update
 
-  package {'filebeat':
-    ensure  => $ensure,
-    require => Class['apt::update']
+      package {'filebeat':
+        ensure  => $ensure,
+        require => Class['apt::update']
+      }
+    }
   }
+
   service { 'filebeat':
     ensure => running,
     enable => true,

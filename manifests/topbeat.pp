@@ -7,13 +7,26 @@ class beats::topbeat (
   $stats_proc       = true,
   $stats_filesystem = true,
 ){
-  include ::apt::update
+
   include beats::topbeat::config
 
-  package {'topbeat':
-    ensure  => $ensure,
-    require => Class['apt::update']
+  case $::osfamily {
+    'RedHat': {
+      package {'topbeat':
+        ensure  => $ensure,
+        require => Yumrepo['elastic-beats']
+      }
+    }
+    default: {
+      include ::apt::update
+
+      package {'topbeat':
+        ensure  => $ensure,
+        require => Class['apt::update']
+      }
+    }
   }
+
   service { 'topbeat':
     ensure => running,
     enable => true,
