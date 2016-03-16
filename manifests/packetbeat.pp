@@ -27,6 +27,7 @@ class beats::packetbeat (
 
   case $::osfamily {
     'RedHat': {
+      include beats::packetbeat::config
       package {'packetbeat':
         ensure  => $beats::packetbeat::ensure,
         require => Yumrepo['elastic-beats'],
