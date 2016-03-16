@@ -24,11 +24,22 @@ class beats::packetbeat (
   $pgsql_max_rows            = undef,
   $pgsql_max_row_length      = undef,
 ){
-  include ::apt::update
-  include beats::packetbeat::config
-  package {'packetbeat':
-    ensure  => $beats::packetbeat::ensure,
-    require => Class['apt::update']
+
+  case $::osfamily {
+    'RedHat': {
+      package {'packetbeat':
+        ensure  => $beats::packetbeat::ensure,
+        require => Yumrepo['elastic-beats'],
+      }
+    }
+    default: {
+      include ::apt::update
+      include beats::packetbeat::config
+      package {'packetbeat':
+        ensure  => $beats::packetbeat::ensure,
+        require => Class['apt::update']
+      }
+    }
   }
   service { 'packetbeat':
     ensure => running,
