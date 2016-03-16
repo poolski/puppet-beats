@@ -9,7 +9,7 @@ class beats::package (
         ensure => installed,
       }
     }
-    'redhat': {
+    'RedHat': {
       package { 'libpcap':
         ensure => installed,
       }
@@ -31,7 +31,7 @@ class beats::package (
       default: {
 
         case $::osfamily {
-          'redhat': {
+          'RedHat': {
             package { 'GeoIP':
               ensure => latest,
             }
