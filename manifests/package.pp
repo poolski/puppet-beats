@@ -9,6 +9,11 @@ class beats::package (
         ensure => installed,
       }
     }
+    'redhat': {
+      package { 'libpcap':
+        ensure => installed,
+      }
+    }
     default: { fail("${::osfamily} not supported yet") }
   }
   if $beats::manage_geoip {
@@ -23,7 +28,19 @@ class beats::package (
           ensure => latest,
         }
       }
-      default: { fail("${::osfamily} not supported yet") }
+      default: {
+
+        case $::osfamily {
+          'redhat': {
+            package { 'GeoIP':
+              ensure => latest,
+            }
+          }
+          default: {
+            fail("${::osfamily} not supported yet") 
+          }
+        }
+      }
     }
   }
 }
