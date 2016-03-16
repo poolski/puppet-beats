@@ -1,7 +1,7 @@
 # Placeholder for when there are official repos
 class beats::repo::yum {
 
-  rpmkey { '52371eca':
+  rpmkey { 'd88e42b4':
     ensure => present,
     source => 'https://packages.elastic.co/GPG-KEY-elasticsearch',
   }
@@ -13,7 +13,7 @@ class beats::repo::yum {
     enabled  => '1',
     gpgcheck => '1',
     gpgkey   => 'https://packages.elastic.co/GPG-KEY-elasticsearch',
-    require  => Rpmkey['52371eca'],
+    require  => Rpmkey['d88e42b4'],
   }
 
 
