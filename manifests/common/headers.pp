@@ -10,7 +10,7 @@ define beats::common::headers (
 ) {
   concat { "/etc/${title}/${title}.yml":
     group   => 'root',
-    mode    => '0755',
+    mode    => '0644',
     owner   => 'root',
     order   => 'numeric',
     require => Package[$title],

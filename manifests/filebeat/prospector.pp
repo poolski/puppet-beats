@@ -20,11 +20,4 @@ define beats::filebeat::prospector(
     content => template('beats/filebeat/prospector.yml.erb'),
     order   => 17,
   }
-
-  if ! defined ( File['/etc/filebeat/filebeat.yml'] ){
-    file { '/etc/filebeat/filebeat.yml':
-      mode    => $mode,
-    }
-  }
-
 }
