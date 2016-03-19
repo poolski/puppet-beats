@@ -5,6 +5,8 @@ define beats::outputs::logstash (
   $index = $title,
   $worker = 2,
   $loadbalance = false,
+  $use_tls = false,
+  $certificate_authorities = ["/etc/pki/tls/certs/logstash-forwarder.crt"],
 ) {
   concat::fragment {"${title}-output-logstash":
     target  => "/etc/${title}/${title}.yml",

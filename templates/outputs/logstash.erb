@@ -3,3 +3,8 @@
     index: <%= @index %>
     worker: <%= @worker %>
     loadbalance: <%= @loadbalance %>
+
+<%- if @use_tls == true -%>
+    tls:
+      certificate_authorities: <% @certificate_authorities.each do |cert| %>["<%= cert %>"]<%- end -%>
+<%- end -%>
