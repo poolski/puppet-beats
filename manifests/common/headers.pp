@@ -14,22 +14,26 @@ define beats::common::headers (
     owner   => 'root',
     order   => 'numeric',
     require => Package[$title],
+    notify  => Service[$title],
   }
   concat::fragment {"${title}-commoon-shipper-config":
     target  => "/etc/${title}/${title}.yml",
     content => template('beats/shipper.erb'),
     order   => 01,
+    notify  => Service[$title],
   }
   if $uid and $gid {
     concat::fragment {"${title}-common-runopts":
       target  => "/etc/${title}/${title}.yml",
       content => template('beats/runopts.erb'),
       order   => 02,
+      notify  => Service[$title],
     }
   }
   concat::fragment {"${title}-common-output-header":
     target  => "/etc/${title}/${title}.yml",
     content => template('beats/outputs/output.header.erb'),
-    order   => 20
+    order   => 20,
+    notify  => Service[$title],
   }
 }
