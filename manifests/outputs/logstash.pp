@@ -12,6 +12,6 @@ define beats::outputs::logstash (
     target  => "/etc/${title}/${title}.yml",
     content => template('beats/outputs/logstash.erb'),
     order   => 22,
-    notify  => Service[${title}],
+    notify  => Service[$title],
   }
 }
