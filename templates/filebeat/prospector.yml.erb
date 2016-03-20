@@ -3,6 +3,9 @@
       paths:<% @paths.each do |path| %>
         - <%= path %>
       <%- end -%>
+     <%- if @document_type -%>
+      document_type: <%= @document_type %>
+     <% end -%>
       fields:<% @fields.each do |key, value| %>
         <%= key -%>: <%= value %>
       <%- end -%>
