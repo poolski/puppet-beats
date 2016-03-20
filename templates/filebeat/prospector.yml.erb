@@ -5,7 +5,7 @@
       <%- end -%>
       fields:<% @fields.each do |key, value| %>
         <%= key -%>: <%= value %>
-      <%- end -%>
+      <%- end %>
 <%- if @document_type -%>      document_type: <%= @document_type %>
 <% end -%>
 <%- if @encoding -%>      encoding: <%= @encoding %>
