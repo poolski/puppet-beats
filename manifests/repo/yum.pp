@@ -1,16 +1,15 @@
-# Placeholder for when there are official repos
 class beats::repo::yum {
 
   ## This is a freely available repo by packagecloud.  Not maintained
   ## As soon as ES provides upstream packages this repo should be obsoleted
-  yumrepo { 'krisbuytaert_monitoringstuff':
+  yumrepo { 'beats':
     ensure   => 'present',
-    baseurl  => 'https://packagecloud.io/krisbuytaert/monitoringstuff/el/6/$basearch',
-    descr    => 'krisbuytaert_monitoringstuff',
+    baseurl  => 'https://packages.elastic.co/beats/yum/el/$basearch',
+    descr    => 'ES beats repository',
     enabled  => '1',
-    gpgcheck => '0',
+    gpgcheck => '1',
+    gpgkey   => 'http://packages.elastic.co/GPG-KEY-elasticsearch'
   }
-
 
 }
 
