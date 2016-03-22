@@ -24,11 +24,17 @@
         "6.0",
         "7.0",
         "8.0"
-      ]
+      ],
+    },
+    {
+      "operatingsystem": "RedHat"
+    },
+    {
+      "operatingsystem": "CentOS"
     }
   ],
   "project_page": "https://github.com/poolski/puppet-beats",
   "source": "https://github.com/poolski/puppet-beats",
   "summary": "A puppet module to manage Elastic's beats data shippers",
-  "version": "0.5.2"
+  "version": "0.6.0"
 }
