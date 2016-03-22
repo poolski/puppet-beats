@@ -7,13 +7,25 @@ class beats::topbeat (
   $stats_proc       = true,
   $stats_filesystem = true,
 ){
-  include ::apt::update
-  include beats::topbeat::config
-
-  package {'topbeat':
-    ensure  => $ensure,
-    require => Class['apt::update']
+  
+  case $::osfamily {
+    'Debian': {
+      include ::apt::update
+      package {'topbeat':
+        ensure  => $ensure,
+        require => Class['apt::update']
+      }
+    }
+    'RedHat': {
+      package {'topbeat':
+        ensure  => $ensure,
+      }
+    }
+    default: { fail("${::osfamily} not supported yet") }
   }
+
+  include beats::topbeat::config
+  
   service { 'topbeat':
     ensure => running,
     enable => true,

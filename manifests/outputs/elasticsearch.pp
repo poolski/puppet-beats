@@ -3,7 +3,10 @@
 define beats::outputs::elasticsearch (
   $hosts = ['localhost:9200'],
   $save_topology = true,
-  $index = 'packetbeat',
+  $index = $title,
+  $username = '',
+  $password = '',
+  $http_path = '',
   $outputs = $beats::outputs
 ) {
   concat::fragment {"${title}-output-elasticsearch":
