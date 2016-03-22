@@ -15,11 +15,21 @@ class beats::filebeat (
     notify  => Service['filebeat'],
   }
 
-  include ::apt::update
+  case $::osfamily {
+    'Debian': {
+      include ::apt::update
 
-  package {'filebeat':
-    ensure  => $ensure,
-    require => Class['apt::update']
+      package {'filebeat':
+        ensure  => $ensure,
+        require => Class['apt::update']
+      }
+    }
+    'RedHat': {
+      package {'filebeat':
+        ensure  => $ensure,
+      }
+    }
+    default: { fail("${::osfamily} not supported yet") }
   }
   service { 'filebeat':
     ensure => running,

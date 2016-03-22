@@ -9,6 +9,11 @@ class beats::package (
         ensure => installed,
       }
     }
+    'RedHat': {
+      package { 'libpcap':
+        ensure => installed,
+      }
+    }
     default: { fail("${::osfamily} not supported yet") }
   }
   if $beats::manage_geoip {
@@ -20,6 +25,11 @@ class beats::package (
       }
       'Debian': {
         package { 'geoip-database-extra':
+          ensure => latest,
+        }
+      }
+      'CentOS': {
+        package { 'GeoIP':
           ensure => latest,
         }
       }
