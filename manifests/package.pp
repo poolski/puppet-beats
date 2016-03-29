@@ -33,7 +33,7 @@ class beats::package (
           ensure => latest,
         }
       }
-      default: { fail("${::osfamily} not supported yet") }
+      default: { fail("${::lsbdistid} not supported yet") }
     }
   }
 }
