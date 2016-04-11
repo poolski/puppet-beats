@@ -40,6 +40,7 @@ class beats (
   $mysql_enabled         = false,
   $redis_enabled         = false,
   $manage_geoip          = true,
+  $manage_repo           = true,
 ){
 
   if $outputs_deep_merge {
@@ -52,16 +53,31 @@ class beats (
     $_outputs_elasticsearch = $outputs_elasticsearch
     $_outputs_file = $outputs_file
   }
-  
-  case $::osfamily {
-    'RedHat': {
-      include beats::repo::yum, beats::package, beats::config
-      Class['beats::repo::yum'] -> Class['beats::package'] -> Class['beats::config']
+
+  if ($manage_repo == true) {
+    case $::osfamily {
+      'RedHat': {
+        include beats::repo::yum, beats::package, beats::config
+        Class['beats::repo::yum'] -> Class['beats::package'] -> Class['beats::config']
+      }
+      'Debian': {
+        include beats::repo::apt, beats::package, beats::config
+        Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
+      }
+      default: { fail("${::osfamily} not supported yet") }
     }
-    'Debian': {
-      include beats::repo::apt, beats::package, beats::config
-      Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
+  }
+  else {
+    case $::osfamily {
+      'RedHat': {
+        include  beats::package, beats::config
+        Class['beats::package'] -> Class['beats::config']
+      }
+      'Debian': {
+        include beats::package, beats::config
+        Class['beats::package'] -> Class['beats::config']
+      }
+      default: { fail("${::osfamily} not supported yet") }
     }
-    default: { fail("${::osfamily} not supported yet") }
   }
 }
