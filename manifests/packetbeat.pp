@@ -41,11 +41,19 @@ class beats::packetbeat (
     }
     default: { fail("${::osfamily} not supported yet") }
   }
-  
-  service { 'packetbeat':
-    ensure => running,
-    enable => true,
+  case $beats::packetbeat::ensure {
+    'latest','installed','running','present': {
+      service { 'packetbeat':
+        ensure => running,
+        enable => true,
+      }
+      Package['packetbeat'] -> Class['beats::packetbeat::config'] ~> Service['packetbeat']
+    }
+    'absent','purged': {
+      service { 'packetbeat':
+        ensure => 'stopped',
+        enable => false,
+      } 
+    }
   }
-  Package['packetbeat'] -> Class['beats::packetbeat::config'] ~>
-  Service['packetbeat']
 }
