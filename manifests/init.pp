@@ -67,4 +67,17 @@ class beats (
       default: { fail("${::osfamily} not supported yet") }
     }
   }
+  else {
+    case $::osfamily {
+      'RedHat': {
+        include  beats::package, beats::config
+        Class['beats::package'] -> Class['beats::config']
+      }
+      'Debian': {
+        include beats::package, beats::config
+        Class['beats::package'] -> Class['beats::config']
+      }
+      default: { fail("${::osfamily} not supported yet") }
+    }
+  }
 }
