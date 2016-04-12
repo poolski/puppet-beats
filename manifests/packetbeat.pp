@@ -25,7 +25,7 @@ class beats::packetbeat (
   $pgsql_max_row_length      = undef,
 ){
   include beats::packetbeat::config
-  
+
   case $::osfamily {
     'Debian': {
       include ::apt::update
@@ -41,7 +41,7 @@ class beats::packetbeat (
     }
     default: { fail("${::osfamily} not supported yet") }
   }
-  
+
   service { 'packetbeat':
     ensure => running,
     enable => true,

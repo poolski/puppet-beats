@@ -6,15 +6,7 @@ class beats::filebeat (
   $registry_file = '/var/lib/filebeat/registry',
   $spool_size    = 1024,
 ){
-
-  beats::common::headers {'filebeat':}
-  concat::fragment {'filebeat.header':
-    target  => '/etc/filebeat/filebeat.yml',
-    content => template('beats/filebeat/filebeat.yml.erb'),
-    order   => 05,
-    notify  => Service['filebeat'],
-  }
-
+  include beats::filebeat::config
   case $::osfamily {
     'Debian': {
       include ::apt::update
@@ -35,10 +27,6 @@ class beats::filebeat (
     ensure => running,
     enable => true,
   }
-  if $prospectors {
-    create_resources('::beats::filebeat::prospector', $prospectors )
-  }
-
-  Package['filebeat'] -> Concat::Fragment['filebeat.header'] ->
-  Beats::Filebeat::Prospector <||> ~> Service['filebeat']
+  Package['filebeat'] -> Class['beats::filebeat::config'] ~>
+  Service['filebeat']
 }
