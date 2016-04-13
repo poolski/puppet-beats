@@ -6,7 +6,7 @@ class beats::filebeat::config inherits beats::filebeat {
     content => template('beats/filebeat/filebeat.yml.erb'),
     order   => 05,
   }
-if $::prospectors {
-  create_resources('::beats::filebeat::prospector', $::prospectors )
+if $::beats::filebeat::prospectors {
+  create_resources('beats::filebeat::prospector', $::beats::filebeat::prospectors )
   }
 }
