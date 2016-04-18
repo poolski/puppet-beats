@@ -55,4 +55,5 @@ class beats::packetbeat (
       }
       Package['packetbeat'] -> Class['beats::packetbeat::config'] ~> Service['packetbeat']
     }
+  }
 }
