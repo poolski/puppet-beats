@@ -3,13 +3,12 @@
       paths:<% @paths.each do |path| %>
         - <%= path %>
       <%- end -%>
+      multiline:<% @multiline.each do |key, value| %>
+        <%= key -%>: <%= value %>
+      <%- end %>
       fields:<% @fields.each do |key, value| %>
         <%= key -%>: <%= value %>
       <%- end %>
-      multiline:<% @multiline.each do |key, value| %>
-        <%= key -%>: "<%= value %>"
-      <%- end %>
-      
 <%- if @document_type -%>      document_type: <%= @document_type %>
 <% end -%>
 <%- if @encoding -%>      encoding: <%= @encoding %>
