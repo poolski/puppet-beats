@@ -3,6 +3,7 @@ class beats::filebeat (
   $ensure        = present,
   $idle_timeout  = '5s',
   $prospectors   = {},
+  $outputs       = {},
   $registry_file = '/var/lib/filebeat/registry',
   $spool_size    = 1024,
 ){

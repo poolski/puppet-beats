@@ -6,7 +6,4 @@ class beats::config() {
     mode   => '0755',
     owner  => 'root',
   }
-  create_resources('beats::outputs::logstash', $beats::_outputs_logstash)
-  create_resources('beats::outputs::elasticsearch', $beats::_outputs_elasticsearch)
-  create_resources('beats::outputs::file', $beats::_outputs_file)
 }

@@ -22,7 +22,7 @@
 #
 class beats (
   $agentname             = $::fqdn ,
-  $tags                  = [],
+  $tags                  = undef,
   $version               = 'latest',
   $ensure                = 'running',
   $enable                = true,
@@ -31,29 +31,15 @@ class beats (
   $topology_expire       = '15',
   $uid                   = undef,
   $gid                   = undef,
-  $outputs_deep_merge    = true,
-  $outputs_logstash      = {},
-  $outputs_elasticsearch = {},
-  $outputs_file          = {},
   $http_enabled          = true,
   $pgsql_enabled         = false,
   $mysql_enabled         = false,
   $redis_enabled         = false,
+  $geoip_paths           = undef,
   $manage_geoip          = true,
   $manage_repo           = true,
+  $shipper_data          = {}
 ){
-
-  if $outputs_deep_merge {
-    $_outputs_logstash = hiera_hash('beats::outputs_logstash',{})
-    $_outputs_elasticsearch = hiera_hash('beats::outputs_elasticsearch',{})
-    $_outputs_file = hiera_hash('beats::outputs_file',{})
-  }
-  else {
-    $_outputs_logstash = $outputs_logstash
-    $_outputs_elasticsearch = $outputs_elasticsearch
-    $_outputs_file = $outputs_file
-  }
-
   if ($manage_repo == true) {
     case $::osfamily {
       'RedHat': {
