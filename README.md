@@ -39,7 +39,7 @@ class { '::beats':
     "prospectors":
       - "fields":
           "type": "es_clusterlog"
-          "cluster_name": "%{hiera('pm_configs_esc_2_x::profile::elasticsearch::cluster_name')}"
+          "cluster_name": "my-es-cluster"
         "paths":
           - "/var/log/elasticsearch/inst/*.log"
         "document_type": "es_clusterlog"
@@ -49,7 +49,7 @@ class { '::beats':
           "match": "after"
       - "fields":
           "type": "es_slowlog"
-          "cluster_name": "%{hiera('pm_configs_esc_2_x::profile::elasticsearch::cluster_name')}"
+          "cluster_name": "my-es-cluster"
         "paths":
           - "/var/log/elasticsearch/inst/*slowlog.log"
         "document_type": "es_slowlog"
