@@ -4,8 +4,13 @@
         - <%= path %>
       <%- end -%>
       multiline:<% @multiline.each do |key, value| %>
-        <%= key -%>: "<%= value %>"
-      <%- end %>
+        <%- if key == "pattern" -%>
+          <%= key -%>: "<%= value -%>"
+        <%- else -%>
+          <%= key -%>: <%= value -%>
+        <%- end -%>
+      <%- end -%>
+
       fields:<% @fields.each do |key, value| %>
         <%= key -%>: <%= value %>
       <%- end %>
