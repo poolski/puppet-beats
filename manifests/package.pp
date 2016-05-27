@@ -17,7 +17,7 @@ class beats::package (
     default: { fail("${::osfamily} not supported yet") }
   }
   if $beats::manage_geoip {
-    case $::lsbdistid {
+    case $::osfamily {
       'Ubuntu': {
         package { 'geoip-database-contrib':
           ensure => latest,
