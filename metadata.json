@@ -6,7 +6,7 @@
       "version_requirement": ">= 2.0"
     },
     {
-      "name": "puppetlabs-concat",
+      "name": "puppetlabs-concat"
     },
     {
       "name": "puppetlabs-stdlib",
