@@ -11,7 +11,7 @@
     },
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": "4.10.0"
+      "version_requirement": ">= 4.10"
     }
   ],
   "issues_url": "https://github.com/poolski/puppet-beats/issues",
