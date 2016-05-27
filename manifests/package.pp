@@ -28,12 +28,12 @@ class beats::package (
           ensure => latest,
         }
       }
-      'CentOS': {
+      'RedHat': {
         package { 'GeoIP':
           ensure => latest,
         }
       }
-      default: { fail("${::lsbdistid} not supported yet") }
+      default: { fail("${::osfamily} not supported yet") }
     }
   }
 }
