@@ -31,8 +31,8 @@
       ]
     }
   ],
-  "project_page": "https://github.com/poolski/puppet-beats",
-  "source": "https://github.com/poolski/puppet-beats",
+  "project_page": "https://github.com/SugarFactory/puppet-beats",
+  "source": "https://github.com/SugarFactory/puppet-beats",
   "summary": "A puppet module to manage Elastic's beats data shippers",
-  "version": "0.5.2"
+  "version": "0.5.3"
 }
