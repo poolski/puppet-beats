@@ -3,19 +3,19 @@
   "dependencies": [
     {
       "name": "puppetlabs-apt",
-      "version_requirement": "2.2.1"
+      "version_requirement": ">= 2.2.1"
     },
     {
       "name": "puppetlabs-concat",
-      "version_requirement": "1.2.4"
+      "version_requirement": ">= 1.2.4"
     },
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": "4.10.0"
+      "version_requirement": ">= 4.10.0"
     },
     {
       "name": "stschulte-rpmkey",
-      "version_requirement": "1.0.3"
+      "version_requirement": ">= 1.0.3"
     }
   ],
   "issues_url": "https://github.com/poolski/puppet-beats/issues",
