@@ -24,7 +24,7 @@ class beats::package (
         }
       }
       'Debian': {
-        package { 'geoip-database-extra':
+        package { 'geoip-database-contrib':
           ensure => latest,
         }
       }
