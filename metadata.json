@@ -3,14 +3,14 @@
   "dependencies": [
     {
       "name": "puppetlabs-apt",
-      "version_requirement": ">= 2.0"
+      "version_requirement": ">= 2.0.0"
     },
     {
       "name": "puppetlabs-concat"
     },
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 4.10"
+      "version_requirement": ">= 4.10.0"
     }
   ],
   "issues_url": "https://github.com/poolski/puppet-beats/issues",
@@ -35,5 +35,5 @@
   "project_page": "https://github.com/poolski/puppet-beats",
   "source": "https://github.com/poolski/puppet-beats",
   "summary": "A puppet module to manage Elastic's beats data shippers",
-  "version": "0.6.4"
+  "version": "0.6.5"
 }
