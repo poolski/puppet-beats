@@ -25,7 +25,7 @@
         "8.0"
       ]
     },
-        {
+    {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "5",
@@ -61,5 +61,5 @@
   "project_page": "https://github.com/SugarFactory/puppet-beats",
   "source": "https://github.com/SugarFactory/puppet-beats",
   "summary": "A puppet module to manage Elastic's beats data shippers",
-  "version": "0.5.4"
+  "version": "0.5.5"
 }
