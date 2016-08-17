@@ -2,14 +2,14 @@
   "author": "poolski",
   "dependencies": [
     {
-      "name": "puppetlabs-apt",
+      "name": "puppetlabs/apt",
       "version_requirement": ">= 2.2.1"
     },
     {
-      "name": "puppetlabs-concat"
+      "name": "puppetlabs/concat"
     },
     {
-      "name": "puppetlabs-stdlib",
+      "name": "puppetlabs/stdlib",
       "version_requirement": ">= 4.10.0"
     }
   ],
