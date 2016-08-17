@@ -6,16 +6,11 @@
       "version_requirement": ">= 2.2.1"
     },
     {
-      "name": "puppetlabs-concat",
-      "version_requirement": ">= 1.2.4"
+      "name": "puppetlabs-concat"
     },
     {
       "name": "puppetlabs-stdlib",
       "version_requirement": ">= 4.10.0"
-    },
-    {
-      "name": "stschulte-rpmkey",
-      "version_requirement": ">= 1.0.3"
     }
   ],
   "issues_url": "https://github.com/poolski/puppet-beats/issues",
@@ -34,5 +29,5 @@
   "project_page": "https://github.com/SugarFactory/puppet-beats",
   "source": "https://github.com/SugarFactory/puppet-beats",
   "summary": "A puppet module to manage Elastic's beats data shippers",
-  "version": "0.5.3"
+  "version": "0.5.4"
 }
