@@ -10,11 +10,12 @@ define beats::common::headers (
   $logging               = hiera('beats::logging', undef),
 ) {
   concat { "/etc/${title}/${title}.yml":
-    group   => 'root',
-    mode    => '0755',
-    owner   => 'root',
-    order   => 'numeric',
-    require => Package[$title],
+    group     => 'root',
+    mode      => '0755',
+    owner     => 'root',
+    order     => 'numeric',
+    require   => Package[$title],
+    show_diff => false,
   }
   concat::fragment {"${title}-common-shipper-config":
     target  => "/etc/${title}/${title}.yml",
