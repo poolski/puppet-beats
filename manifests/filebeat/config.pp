@@ -6,7 +6,9 @@ class beats::filebeat::config inherits beats::filebeat {
     content => template('beats/filebeat/filebeat.yml.erb'),
     order   => 05,
   }
-if $::beats::filebeat::prospectors {
-  create_resources('beats::filebeat::prospector', $::beats::filebeat::prospectors )
+  # We read them again to combine the variables defined at different levels
+  $p2 = hiera_hash('beats::filebeat::prospectors', {})
+  if $p2 {
+    create_resources('beats::filebeat::prospector', $p2)
   }
 }
