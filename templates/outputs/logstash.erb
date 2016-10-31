@@ -3,3 +3,8 @@
     index: <%= @index %>
     worker: <%= @worker %>
     loadbalance: <%= @loadbalance %>
+<%- if @tls -%>    tls:<% @tls.each do |key, value| %>
+      <%= key -%>: <%= value -%><%- end -%>
+<%- end -%>
+
+
