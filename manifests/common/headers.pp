@@ -7,6 +7,7 @@ define beats::common::headers (
   $uid                   = $beats::uid,
   $gid                   = $beats::gid,
   $geoip_paths           = hiera('geoip_paths',['/usr/share/GeoIP/GeoIPCity.dat']),
+  $logging               = hiera('beats::logging', undef),
 ) {
   concat { "/etc/${title}/${title}.yml":
     group   => 'root',
@@ -15,7 +16,7 @@ define beats::common::headers (
     order   => 'numeric',
     require => Package[$title],
   }
-  concat::fragment {"${title}-commoon-shipper-config":
+  concat::fragment {"${title}-common-shipper-config":
     target  => "/etc/${title}/${title}.yml",
     content => template('beats/shipper.erb'),
     order   => 01,
@@ -31,5 +32,10 @@ define beats::common::headers (
     target  => "/etc/${title}/${title}.yml",
     content => template('beats/outputs/output.header.erb'),
     order   => 20
+  }
+  concat::fragment {"${title}-common-logging":
+    target  => "/etc/${title}/${title}.yml",
+    content => template('beats/logging.erb'),
+    order   => 100
   }
 }

@@ -1,0 +1,14 @@
+
+
+# Beats Logging
+<%- if @logging.is_a?(Hash) -%>logging:<% @logging.each do |key, value| %>
+  <%- if value.is_a?(Hash) -%>
+  <%= key -%>:
+    <%- value.each do |key2, value2| -%>
+    <%= key2 -%>: <%= value2 %>
+    <%- end -%>
+  <%- else -%>
+  <%= key -%>: <%= value -%>
+  <%- end -%>
+  <%- end -%>
+<%- end -%>
