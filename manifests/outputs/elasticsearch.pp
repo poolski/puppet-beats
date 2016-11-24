@@ -7,7 +7,8 @@ define beats::outputs::elasticsearch (
   $username = '',
   $password = '',
   $http_path = '',
-  $outputs = $beats::outputs
+  $outputs = $beats::outputs,
+  $period = '10'
 ) {
   concat::fragment {"${title}-output-elasticsearch":
     target  => "/etc/${title}/${title}.yml",
