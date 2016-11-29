@@ -1,4 +1,3 @@
-
     -
       paths:<% @paths.each do |path| %>
         - <%= path %>
@@ -15,4 +14,12 @@
 <%- if @max_backoff -%>      max_backoff: <%= @max_backoff %><% end -%>
 <%- if @backoff_factor -%>      backoff_factor: <%= @backoff_factor %><% end -%>
 <%- if @partial_line_waiting -%>      partial_line_waiting: <%= @partial_line_waiting %><% end -%>
-<%- if @force_close_files -%>      force_close_files: <%= @force_close_files -%><% end -%>
+<%- if @force_close_files -%>      force_close_files: <%= @force_close_files %><% end -%>
+<%- if @fields_under_root -%>      fields_under_root: <%= @fields_under_root %><% end -%>
+<%- if @doc_type -%>      document_type: <%= @doc_type %><% end -%>
+<%- if @input_type -%>      input_type: <%= @input_type %><% end -%>
+<%- if @max_bytes -%>      max_bytes: <%= @max_bytes %><% end -%>
+<%- if @multiline -%>      multiline:<% @multiline.each do |key, value| %>
+        <%= key -%>: <%= value -%><%- end -%>
+<% end -%>
+

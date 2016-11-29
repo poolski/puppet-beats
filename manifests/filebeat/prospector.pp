@@ -13,6 +13,11 @@ define beats::filebeat::prospector (
   $backoff_factor        = undef,
   $partial_line_waiting  = undef,
   $force_close_files     = false,
+  $fields_under_root     = undef,
+  $input_type            = undef,
+  $doc_type              = undef,
+  $max_bytes             = undef,
+  $multiline             = undef,
 )
 {
 concat::fragment {"prospector-${title}":
