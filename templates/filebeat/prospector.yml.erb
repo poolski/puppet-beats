@@ -19,6 +19,7 @@
 <%- if @doc_type -%>      document_type: <%= @doc_type %><% end -%>
 <%- if @input_type -%>      input_type: <%= @input_type %><% end -%>
 <%- if @max_bytes -%>      max_bytes: <%= @max_bytes %><% end -%>
+<%- if @exclude_lines -%>      exclude_lines: <%= @exclude_lines %><% end -%>
 <%- if @multiline -%>      multiline:<% @multiline.each do |key, value| %>
         <%= key -%>: <%= value -%><%- end -%>
 <% end -%>
