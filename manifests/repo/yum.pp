@@ -8,7 +8,7 @@ class beats::repo::yum {
     descr    => 'ES beats repository',
     enabled  => '1',
     gpgcheck => '1',
-    gpgkey   => 'http://packages.elastic.co/GPG-KEY-elasticsearch'
+    gpgkey   => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
   }
 
 }

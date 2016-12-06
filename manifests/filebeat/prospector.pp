@@ -18,6 +18,7 @@ define beats::filebeat::prospector (
   $doc_type              = undef,
   $max_bytes             = undef,
   $multiline             = undef,
+  $exclude_lines         = undef,
 )
 {
 concat::fragment {"prospector-${title}":

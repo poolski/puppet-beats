@@ -13,6 +13,6 @@ define beats::outputs::elasticsearch (
   concat::fragment {"${title}-output-elasticsearch":
     target  => "/etc/${title}/${title}.yml",
     content => template('beats/outputs/elasticsearch.erb'),
-    order   => 21
+    order   => 21,
   }
 }

@@ -13,7 +13,7 @@ class beats::metricbeat (
       include ::apt::update
       package {'metricbeat':
         ensure  => $ensure,
-        require => Class['apt::update']
+        require => Class['apt::update'],
       }
     }
     'RedHat': {
@@ -24,7 +24,7 @@ class beats::metricbeat (
     default: { fail("${::osfamily} not supported yet") }
   }
 
-  include beats::metricbeat::config
+  include ::beats::metricbeat::config
 
   service { 'metricbeat':
     ensure => running,
