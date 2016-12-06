@@ -14,7 +14,7 @@
     }
   ],
   "issues_url": "https://github.com/poolski/puppet-beats/issues",
-  "license": "GPL v2",
+  "license": "GPL-2.0",
   "name": "poolski-beats",
   "operatingsystem_support": [
     {

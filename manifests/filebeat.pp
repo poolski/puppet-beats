@@ -6,14 +6,14 @@ class beats::filebeat (
   $registry_file = '/var/lib/filebeat/registry',
   $spool_size    = 1024,
 ){
-  include beats::filebeat::config
+  include ::beats::filebeat::config
   case $::osfamily {
     'Debian': {
       include ::apt::update
 
       package {'filebeat':
         ensure  => $ensure,
-        require => Class['apt::update']
+        require => Class['apt::update'],
       }
     }
     'RedHat': {

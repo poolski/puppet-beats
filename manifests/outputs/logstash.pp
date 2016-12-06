@@ -10,6 +10,6 @@ define beats::outputs::logstash (
   concat::fragment {"${title}-output-logstash":
     target  => "/etc/${title}/${title}.yml",
     content => template('beats/outputs/logstash.erb'),
-    order   => 22
+    order   => 22,
   }
 }
