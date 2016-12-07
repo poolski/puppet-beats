@@ -8,39 +8,24 @@ class beats::package (
       package { 'libpcap0.8':
         ensure => installed,
       }
+
+      if $beats::manage_geoip {
+        package { 'geoip-database-contrib':
+          ensure => latest,
+        }
+      }
     }
     'RedHat': {
       package { 'libpcap':
         ensure => installed,
       }
+
+      if $beats::manage_geoip {
+        package { 'GeoIP':
+          ensure => latest,
+        }
+      }
     }
     default: { fail("${::osfamily} not supported yet") }
-  }
-  if $beats::manage_geoip {
-    case $::lsbdistid {
-      'Ubuntu': {
-        package { 'geoip-database-contrib':
-          ensure => latest,
-        }
-      }
-      'Debian': {
-        package { 'geoip-database-contrib':
-          ensure => latest,
-        }
-      }
-      default: {
-
-        case $::osfamily {
-          'RedHat': {
-            package { 'GeoIP':
-              ensure => latest,
-            }
-          }
-          default: {
-            fail("${::osfamily} not supported yet")
-          }
-        }
-      }
-    }
   }
 }
