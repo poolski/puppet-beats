@@ -55,11 +55,11 @@ class beats (
 
   case $::osfamily {
     'RedHat': {
-      include beats::repo::yum, beats::package, beats::config
+      include ::beats::repo::yum, ::beats::package, ::beats::config
       Class['beats::repo::yum'] -> Class['beats::package'] -> Class['beats::config']
     }
     default: {
-      include beats::repo::apt, beats::package, beats::config
+      include ::beats::repo::apt, ::beats::package, ::beats::config
       Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
     }
   }

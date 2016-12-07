@@ -37,7 +37,7 @@ class beats::package (
             }
           }
           default: {
-            fail("${::osfamily} not supported yet") 
+            fail("${::osfamily} not supported yet")
           }
         }
       }

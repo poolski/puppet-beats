@@ -11,7 +11,7 @@ class beats::filebeat (
   concat::fragment {'filebeat.header':
     target  => '/etc/filebeat/filebeat.yml',
     content => template('beats/filebeat/filebeat.yml.erb'),
-    order   => 05,
+    order   => "05",
     notify  => Service['filebeat'],
   }
 
@@ -19,7 +19,7 @@ class beats::filebeat (
     'RedHat': {
       package {'filebeat':
         ensure  => $ensure,
-        require => Yumrepo['elastic-beats']
+        require => Yumrepo['elastic-beats'],
       }
     }
     default: {
@@ -27,7 +27,7 @@ class beats::filebeat (
 
       package {'filebeat':
         ensure  => $ensure,
-        require => Class['apt::update']
+        require => Class['apt::update'],
       }
     }
   }
