@@ -11,16 +11,16 @@ class beats::repo::apt() {
     },
     include  => {
       'deb'  => true
-    }
+    },
   }
   exec {'apt-get update':
     command => 'apt-get -qq update',
-    path => '/usr/bin',
-    unless => ['/usr/bin/dpkg -l | /bin/grep apt-transport-https']
+    path    => '/usr/bin',
+    unless  => ['/usr/bin/dpkg -l | /bin/grep apt-transport-https'],
   }
   package {'apt-transport-https':
     ensure  => latest,
     before  => Apt::Source['elastic-beats'],
-    require => Exec['apt-get update']
+    require => Exec['apt-get update'],
   }
 }
