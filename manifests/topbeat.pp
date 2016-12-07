@@ -8,13 +8,13 @@ class beats::topbeat (
   $stats_filesystem = true,
 ){
 
-  include beats::topbeat::config
+  include ::beats::topbeat::config
 
   case $::osfamily {
     'RedHat': {
       package {'topbeat':
         ensure  => $ensure,
-        require => Yumrepo['elastic-beats']
+        require => Yumrepo['elastic-beats'],
       }
     }
     default: {
@@ -22,7 +22,7 @@ class beats::topbeat (
 
       package {'topbeat':
         ensure  => $ensure,
-        require => Class['apt::update']
+        require => Class['apt::update'],
       }
     }
   }
