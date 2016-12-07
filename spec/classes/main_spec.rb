@@ -12,10 +12,17 @@ describe 'beats' do
           it { is_expected.to compile.with_all_deps }
 
           it { is_expected.to contain_class('beats') }
-          it { is_expected.to contain_class('beats::params') }
-          it { is_expected.to contain_class('beats::install').that_comes_before('beats::config') }
+          it { is_expected.to contain_class('beats::package') }
           it { is_expected.to contain_class('beats::config') }
-          it { is_expected.to contain_class('beats::service').that_subscribes_to('beats::config') }
+          it { is_expected.to contain_class('beats::package').that_comes_before('beats::config') }
+          #it { is_expected.to contain_class('beats::service').that_subscribes_to('beats::filebeat') }
+
+          is_expected.to contain_file('/etc/beats/').with({
+            'ensure' => 'directory',
+            'owner'  => 'root',
+            'mode'   => '0755',
+            'owner'  => 'root',
+          })
 
           #it { is_expected.to contain_service('beats') }
           #it { is_expected.to contain_package('apachetop').with_ensure('installed') }
