@@ -2,4 +2,4 @@ fixtures:
   repositories:
     stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
   symlinks:
-    sugarcrmstack_ng: "#{source_dir}"
+    beats: "#{source_dir}"
