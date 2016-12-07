@@ -58,9 +58,12 @@ class beats (
       include ::beats::repo::yum, ::beats::package, ::beats::config
       Class['beats::repo::yum'] -> Class['beats::package'] -> Class['beats::config']
     }
-    default: {
+    'Debian': {
       include ::beats::repo::apt, ::beats::package, ::beats::config
       Class['beats::repo::apt'] -> Class['beats::package'] -> Class['beats::config']
+    }
+    default: {
+      fail("${::osfamily} not supported yet")
     }
   }
 }
