@@ -11,7 +11,7 @@ class beats::filebeat (
   concat::fragment {'filebeat.header':
     target  => '/etc/filebeat/filebeat.yml',
     content => template('beats/filebeat/filebeat.yml.erb'),
-    order   => "05",
+    order   => '05',
     notify  => Service['filebeat'],
   }
 
