@@ -6,6 +6,9 @@ fixtures:
     concat:
       ref: '1.2.5'
       repo: puppetlabs/concat
+    rpmkey:
+      ref: 'v1.0.3'
+      repo: stschulte/rpmkey
   repositories:
     stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
   symlinks:

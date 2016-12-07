@@ -11,6 +11,9 @@
     {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">= 4.10.0"
+    },
+    {
+      "name": "stschulte/rpmkey"
     }
   ],
   "issues_url": "https://github.com/poolski/puppet-beats/issues",
