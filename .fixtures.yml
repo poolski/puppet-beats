@@ -5,7 +5,7 @@ fixtures:
       repo: puppetlabs/apt
     concat:
       ref: '1.2.5'
-      repo: puppetlabs/apt
+      repo: puppetlabs/concat
   repositories:
     stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
   symlinks:
