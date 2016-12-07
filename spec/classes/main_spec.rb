@@ -41,7 +41,7 @@ describe 'beats' do
         }
       end
 
-      it { expect { is_expected.to contain_package('beats') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
+      it { expect { is_expected.to contain_package('beats') }.to raise_error(Puppet::Error, /Nexenta not supported yet/) }
     end
   end
 end
