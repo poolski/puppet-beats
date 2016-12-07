@@ -9,4 +9,6 @@
 # Learn more about module testing here:
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
-include packetbeat
+include ::beats
+include ::beats::topbeat
+include ::beats::filebeat
