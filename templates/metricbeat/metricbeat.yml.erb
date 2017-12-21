@@ -40,11 +40,18 @@ metricbeat.modules:
 
     # Network stats
     - network
+  <%-end-%>
 
+  <%- if @stats_processes %>
     # Per process stats
     - process
+  processes: <%= @procs.to_json %>
   <%-end-%>
+  
   enabled: true
   period:  <%= @period %>
-  processes: <%= @procs.to_json %>
-
+  <%- if @extra_conf %>
+  <%- @extra_conf.each do |my_key, my_value| %>
+  <%= my_key %>: <%= my_value.to_json %>
+  <%- end -%>
+  <%- end -%>
